@@ -1,27 +1,37 @@
 
 ## Git hub flow
 
+## Initialize repo
 git init
 git add README.md
 git commit -m "first commit"
-
 git branch -M main
 git remote add origin https://github.com/Amatcha-Boanerges/landingpage-paconf.git
 git push -u origin main
 
+## Create a new branch
 git checkout -b develop 
 git push --set-upstream origin develop
 
-
-git checkout -b feat/hero-section
+## Create a new feature branch
+git checkout -b feat/hero-section 
 git checkout -b feat/awaityou
 git checkout -b feat/whyattend
 
 
+## Update local branches for merging
 git checkout develop
-git checkout main
-git merge develop
-git push origin main
+git pull origin develop
+git checkout feat/hero-section
+git pull origin feat/hero-section
 
+## Merge feat into develop
+git checkout develop
+git merge --no-ff feat/hero-section
 
-git checkout -b release
+## Resolve conflicts (if any), then:
+git add .
+git commit -m "Resolved merge conflicts"
+
+## Push changes
+git push origin develop
