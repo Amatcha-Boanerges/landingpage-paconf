@@ -37,9 +37,7 @@ This installs all required packages into node_modules.
 Environment files (like .env) are not committed to the repository.
 Check for an .env.example file, or
 Contact the project maintainer to get the .env file, then:
-touch .env
 
-# Add your environment variables here
 
 ## 🏗️ Build and Run the App
 
