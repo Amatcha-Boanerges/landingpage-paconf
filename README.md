@@ -8,12 +8,14 @@ Ensure the following are installed:
 
 ---
 
-## 🔁 Clone the Repository
+## 🔁 Clone the Repository and move to the develop branch
 
 
 ```bash
 git clone https://github.com/Amatcha-Boanerges/landingpage-paconf.git
 cd landingpage-paconf
+git checkout develop
+git pull origin develop
 
 ```
 
@@ -23,6 +25,7 @@ cd landingpage-paconf
 Run the following in the root directory of the project:
 
 ```bash
+
 npm install
 
 ```
@@ -68,11 +71,12 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 Check the Project setup folder: Architecture, Git cheat sheet, UI-UX Guidelines to understand the structure.
 
-## Next Steps - Create a new feature branch and start working on it
+## Next Steps - Create a new feature branch, push first to initialize the branch, start working on it
 
 ```bash
 git checkout -b feat/hero-section 
 git checkout -b feat/awaityou
 git checkout -b feat/whyattend
+git push --set-upstream origin [your-branch-name]
 
 ```
