@@ -60,6 +60,10 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 Check the Project setup folder: Architecture, Git cheat sheet, UI-UX Guidelines to understand the structure.
 
 ## Next Steps - Create a new feature branch and start working on it
+
+```bash
 git checkout -b feat/hero-section 
 git checkout -b feat/awaityou
 git checkout -b feat/whyattend
+
+```
