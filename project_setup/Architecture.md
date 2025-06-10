@@ -7,12 +7,12 @@ The project is organized into the following directories:
 /public: A directory for all static assets, including images and logos.
 
 /app
-|-- /_components
+|-- /components
 |   |-- Footer.tsx
 |   |-- Header.tsx
 |   |-- Hero.tsx (feat/hero-section)
-|   |-- SocialProof.tsx (feat/awaityou)
-|   |-- Solution.tsx (feat/whyattend)
+|   |-- AwaitYou.tsx (feat/awaityou)
+|   |-- WhyAttend.tsx (feat/whyattend)
 |-- favicon.ico
 |-- globals.css
 |-- layout.tsx
@@ -20,4 +20,5 @@ The project is organized into the following directories:
 /public
 |-- fivesixfive.svg
 |-- other.svg
+
 
