@@ -10,14 +10,23 @@ Ensure the following are installed:
 
 ## 🔁 Clone the Repository
 
+
+```bash
 git clone https://github.com/Amatcha-Boanerges/landingpage-paconf.git
 cd landingpage-paconf
+
+```
+
 
 ## 📂 Install Dependencies
 
 Run the following in the root directory of the project:
 
+```bash
 npm install
+
+```
+
 This installs all required packages into node_modules.
 
 ## 🔐 Set Up Environment Variables
