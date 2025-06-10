@@ -10,8 +10,8 @@ Ensure the following are installed:
 
 ## 🔁 Clone the Repository
 
-git clone https://github.com/Amatcha-Boanerges/fivesixfivewebsite.git
-cd fivesixfivewebsite
+git clone https://github.com/Amatcha-Boanerges/landingpage-paconf.git
+cd landingpage-paconf
 
 ## 📂 Install Dependencies
 
