@@ -1,7 +1,7 @@
 // app/_components/AwaitYou.tsx
 export default function AwaitYou() {
   return (
-    <section section id="AwaitYou" className="bg-primary text-white py-10 px-4 text-center">
+    <section id="AwaitYou" className="bg-primary text-white py-10 px-4 text-center">
       <div className="max-w-4xl mx-auto space-y-6">
         <div className="flex justify-center">
         </div>

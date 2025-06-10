@@ -2,7 +2,7 @@
 
 export default function WhyAttend() {
   return (
-    <section section id="whyattend" className="bg-secondary text-white py-10 px-4 text-center">
+    <section id="whyattend" className="bg-secondary text-white py-10 px-4 text-center">
       <div className="max-w-4xl mx-auto space-y-6">
         <div className="flex justify-center">
         </div>
