@@ -26,3 +26,6 @@ Section backgrounds
 Headings H1–H3: Poppins SemiBold
 Sub-heads / UI labels: Montserrat Medium
 Body: Inter Regular (line-height 1.6)
+
+
+Colors are available in the tailwind.config file
