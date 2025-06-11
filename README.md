@@ -75,6 +75,7 @@ Check the Project setup folder: Architecture, Git cheat sheet, UI-UX Guidelines 
 git checkout -b feat/hero-section 
 git checkout -b feat/awaityou
 git checkout -b feat/whyattend
+git commit -m "first version of why attend"
 git push --set-upstream origin [your-branch-name]
 
 ```
