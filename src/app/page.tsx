@@ -14,7 +14,7 @@ export default function Home() {
 
           </div>
           {/* middle segment of whataWaits you */}
-          <div className="z-20 px-6 py-16 text-center w-[90%] sm:w-[85%] rounded-[30px]"
+          <div className="rounded-t-[30px] bg-[#26b9b0] px-6 py-10 text-center w-full max-w-[1200px]"
             style={{ backgroundColor: '#21b191'}}
           >
             <p className="text-[20px] sm:text-[24px] font-bold leading-relaxed">
@@ -24,13 +24,17 @@ export default function Home() {
             </p>
           </div>
           {/* Last segment of what await */}
-          <div className="z-10 -mt-12 px-6 py-6 text-center w-[85%] sm:w-[75%] rounded-b-[30px]"
+          <div className="rounded-b-[30px] bg-[#d23c9d] px-6 py-10 text-center w-full max-w-[1200px] -mt-[8px]"
             style={{ backgroundColor: '#d23c9d'}}
           >
             <h3 className="text-[18px] sm:text-[20px] font-semibold">
               Events speakers are drawn From:<br />
 
             </h3>
+            <p className="text-[16px] sm:text-[18px] font-medium mt-2">
+              Ghana, United States of America, United Arab Emirates.
+
+            </p>
 
           </div>
 
