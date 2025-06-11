@@ -44,7 +44,7 @@ export default function WhyAttend() {
             Why attend the 2025 PA Conference
           </h2>
           <p className="text-lg md:text-xl max-w-2xl mx-auto text-gray-200">
-            The PA Conference is for you if you are a Personal, Executive,
+            The PA Conference is for you if you are a Personal , Executive,
             Administrative, Business, or Project Assistant who:
           </p>
         </header>
@@ -57,7 +57,7 @@ export default function WhyAttend() {
                 index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
               } items-center gap-4 bg-white bg-opacity-5 rounded-xl p-4 shadow-md hover:scale-[1.01] transition-transform`}
             >
-              <div className="w-full md:w-1/2">
+              <div  className="w-full md:w-1/2">
                 <Image
                   src={card.image}
                   alt="PA Conference Attendee"
