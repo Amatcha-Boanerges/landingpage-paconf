@@ -13,7 +13,7 @@ export default function Home() {
             </h2>
 
           </div>
-          {/* middle segment of whatWaits you */}
+          {/* middle segment of whataWaits you */}
           <div className="z-20 px-6 py-16 text-center w-[90%] sm:w-[85%] rounded-[30px]"
             style={{ backgroundColor: '#21b191'}}
           >
@@ -24,6 +24,15 @@ export default function Home() {
             </p>
           </div>
           {/* Last segment of what await */}
+          <div className="z-10 -mt-12 px-6 py-6 text-center w-[85%] sm:w-[75%] rounded-b-[30px]"
+            style={{ backgroundColor: '#d23c9d'}}
+          >
+            <h3 className="text-[18px] sm:text-[20px] font-semibold">
+              Events speakers are drawn From:<br />
+
+            </h3>
+
+          </div>
 
         </section>
 
