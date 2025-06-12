@@ -41,6 +41,24 @@ export default function AwaitYou() {
                 <span className="mt-2 text-[16px] sm:text-[18px] font-medium">Days</span>
               </div>
 
+              {/* countdown Unit Hours */}
+              <div className="flex flex-col items-center">
+                <div className="w-28 h-28 rounded-full border-4 border-teal-400 flex items-center justify-center text-[32px] sm:text-[40px] font-bold">
+                  13
+                </div>
+                <span className="mt-2 text-[16px] sm:text-[18px] font-medium">Hours</span>
+
+              </div>
+
+              {/* countdownd Unit -Minutes */}
+              <div className="flex flex-col items-center">
+                  <div className="w-28 h-28 rounded-full border-4 border-teal-400 flex items-center justify-center text-[32px] sm:text-[40px] font-bold">
+                    32
+
+                  </div>
+                  <span className="mt-2 text-[16px] sm:text-[18px] font-medium">Minutes</span>
+              </div>
+
             </div>
 
           </div>
