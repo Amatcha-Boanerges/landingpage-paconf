@@ -27,6 +27,7 @@ git pull origin feat/hero-section
 
 ## Merge feat into develop
 git checkout develop
+# git pull
 git merge --no-ff feat/hero-section
 
 ## Resolve conflicts (if any), then:
