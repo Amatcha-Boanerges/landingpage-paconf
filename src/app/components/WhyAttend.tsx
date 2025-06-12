@@ -49,7 +49,7 @@ export default function WhyAttend() {
           </p>
         </header>
 
-        <div className="grid md:grid-cols-2 gap-6">
+        <div className="space-y-6">
           {cards.map((card, index) => (
             <div
               key={index}
