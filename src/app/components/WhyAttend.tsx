@@ -1,5 +1,3 @@
-// app/_components/WhyAttend.tsx
-
 "use client";
 
 import Image from "next/image";
@@ -55,26 +53,26 @@ export default function WhyAttend() {
               key={index}
               className="flex flex-col md:flex-row items-stretch gap-4 bg-white bg-opacity-5 rounded-xl p-4 shadow-md hover:scale-[1.01] transition-transform"
             >
-              {/* Text: left for even rows, right for odd rows */}
+              {/* Text: 1/3 */}
               <div
-                className={`w-full md:w-1/2 min-h-[250px] p-6 flex items-center text-left text-white font-semibold rounded-lg ${card.bgColor} ${
+                className={`w-full md:w-1/3 min-h-[250px] p-6 flex items-center text-left text-white font-semibold rounded-lg ${card.bgColor} ${
                   index % 2 === 0 ? "md:order-1" : "md:order-2"
                 }`}
               >
                 {card.text}
               </div>
 
-              {/* Image: right for even rows, left for odd rows */}
+              {/* Image: 2/3 */}
               <div
-                className={`w-full md:w-1/2 min-h-[250px] ${
+                className={`w-full md:w-2/3 min-h-[250px] ${
                   index % 2 === 0 ? "md:order-2" : "md:order-1"
                 }`}
               >
                 <Image
                   src={card.image}
                   alt="PA Conference Attendee"
-                  width={600}
-                  height={400}
+                  width={800}
+                  height={500}
                   className="rounded-lg object-cover w-full h-full"
                 />
               </div>
