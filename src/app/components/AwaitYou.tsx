@@ -31,7 +31,7 @@ export default function AwaitYou() {
               Events speakers are drawn From:<br />
 
             </h3>
-            <p className="text-[16px] sm:text-[18px] font-medium mt-2">
+            <p className="text-[18px] sm:text-[20px] font-semibold">
               Ghana, United States of America, United Arab Emirates.
 
             </p>
