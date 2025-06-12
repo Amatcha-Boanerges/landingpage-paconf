@@ -34,10 +34,11 @@ export default function AwaitYou() {
               className="absolute top-0 left-0 w-full h-full rounded-xl shadow-xl"
               src="https://www.youtube.com/embed/iCxM6Kvwycs"
               title="PA Conference 2025 Promo"
-              frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
+              style={{ border: "none" }}
             ></iframe>
+
           </div>
         </div>
 
