@@ -35,8 +35,8 @@ export default function WhyAttend() {
 
   return (
     <section
-  id="whyattend"
-  className="bg-[#0a2540] text-white py-16 px-4 md:px-8"
+      id="whyattend"
+      className="bg-[#0a2540] text-white py-16 px-4 md:px-8"
     >
       <div className="max-w-6xl mx-auto space-y-10">
         <header className="text-center space-y-4">
@@ -44,7 +44,7 @@ export default function WhyAttend() {
             Why attend the 2025 PA Conference
           </h2>
           <p className="text-lg md:text-xl max-w-2xl mx-auto text-gray-200">
-            The PA Conference is for you if you are a Personal , Executive,
+            The PA Conference is for you if you are a Personal, Executive,
             Administrative, Business, or Project Assistant who:
           </p>
         </header>
@@ -55,19 +55,19 @@ export default function WhyAttend() {
               key={index}
               className={`flex flex-col ${
                 index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
-              } items-center gap-4 bg-white bg-opacity-5 rounded-xl p-4 shadow-md hover:scale-[1.01] transition-transform`}
+              } items-stretch gap-4 bg-white bg-opacity-5 rounded-xl p-4 shadow-md hover:scale-[1.01] transition-transform`}
             >
-              <div  className="w-full md:w-1/2">
+              <div className="w-full md:w-1/2 min-h-[250px]">
                 <Image
                   src={card.image}
                   alt="PA Conference Attendee"
                   width={600}
                   height={400}
-                  className="rounded-lg object-cover w-full h-auto"
+                  className="rounded-lg object-cover w-full h-full"
                 />
               </div>
               <div
-                className={`w-full md:w-1/2 p-4 text-left text-white font-semibold rounded-lg ${card.bgColor}`}
+                className={`w-full md:w-1/2 min-h-[250px] p-6 flex items-center text-left text-white font-semibold rounded-lg ${card.bgColor}`}
               >
                 {card.text}
               </div>
