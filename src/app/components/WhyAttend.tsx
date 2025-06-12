@@ -35,8 +35,8 @@ export default function WhyAttend() {
 
   return (
     <section
-      id="whyattend"
-      className="bg-secondary text-white py-16 px-4 md:px-8"
+  id="whyattend"
+  className="bg-[#0a2540] text-white py-16 px-4 md:px-8"
     >
       <div className="max-w-6xl mx-auto space-y-10">
         <header className="text-center space-y-4">
