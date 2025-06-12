@@ -59,6 +59,15 @@ export default function AwaitYou() {
                   <span className="mt-2 text-[16px] sm:text-[18px] font-medium">Minutes</span>
               </div>
 
+              {/* countdownd unit -Seconds */}
+              <div className="flex flex-col items-center">
+                <div className="w-28 h-28 rounded-full border-4 border-teal-400 flex items-center justify-center text-[32px] sm:text-[40px] font-bold">
+                  47
+                </div>
+                <span className="mt-2 text-[16px] sm:text-[18px] font-medium">Seconds</span>
+
+              </div>
+
             </div>
 
           </div>
