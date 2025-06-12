@@ -53,11 +53,23 @@ export default function WhyAttend() {
           {cards.map((card, index) => (
             <div
               key={index}
-              className={`flex flex-col ${
-                index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
-              } items-stretch gap-4 bg-white bg-opacity-5 rounded-xl p-4 shadow-md hover:scale-[1.01] transition-transform`}
+              className="flex flex-col md:flex-row items-stretch gap-4 bg-white bg-opacity-5 rounded-xl p-4 shadow-md hover:scale-[1.01] transition-transform"
             >
-              <div className="w-full md:w-1/2 min-h-[250px]">
+              {/* Text: left for even rows, right for odd rows */}
+              <div
+                className={`w-full md:w-1/2 min-h-[250px] p-6 flex items-center text-left text-white font-semibold rounded-lg ${card.bgColor} ${
+                  index % 2 === 0 ? "md:order-1" : "md:order-2"
+                }`}
+              >
+                {card.text}
+              </div>
+
+              {/* Image: right for even rows, left for odd rows */}
+              <div
+                className={`w-full md:w-1/2 min-h-[250px] ${
+                  index % 2 === 0 ? "md:order-2" : "md:order-1"
+                }`}
+              >
                 <Image
                   src={card.image}
                   alt="PA Conference Attendee"
@@ -65,11 +77,6 @@ export default function WhyAttend() {
                   height={400}
                   className="rounded-lg object-cover w-full h-full"
                 />
-              </div>
-              <div
-                className={`w-full md:w-1/2 min-h-[250px] p-6 flex items-center text-left text-white font-semibold rounded-lg ${card.bgColor}`}
-              >
-                {card.text}
               </div>
             </div>
           ))}
