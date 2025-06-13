@@ -24,28 +24,34 @@ export default function AwaitYou() {
           </p>
         </div>
 
+        {/* Pink Bottom Segment - Rounded Bottom Only */}
+        <div
+          className="rounded-b-[30px] bg-[#d23c9d] px-6 py-10 text-center w-full max-w-[1200px] -mt-[8px]"
+        >
+          <h3 className="text-white text-[30px] sm:text-[40px] font-bold leading-relaxed">
+            Events speakers are drawn from:
+          </h3>
+          <p className="text-white text-[30px] sm:text-[40px] font-bold leading-relaxed">
+            Ghana, United States of America and United Arab Emirates
+          </p>
+        </div>
+
+
         {/* #3: Countdown */}
         <CountdownTimer />
-
 
         <div className="w-full max-w-[1200px] mx-auto px-4 py-10 flex justify-center">
           <div className="relative w-full pb-[56.25%] h-0">
             <iframe
               className="absolute top-0 left-0 w-full h-full rounded-xl shadow-xl"
-              src="https://www.youtube.com/embed/iCxM6Kvwycs"
+              src="https://www.youtube.com/embed/iCxM6Kvwycs?modestbranding=1&rel=0&showinfo=0"
               title="PA Conference 2025 Promo"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
               style={{ border: "none" }}
             ></iframe>
-
           </div>
         </div>
-
-
-
-
-
       </section>
     </section>
   );
