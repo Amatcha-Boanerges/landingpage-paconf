@@ -16,14 +16,14 @@ export default function Hero() {
             />
             </div>
     
-            <div className="text-8xl leading-[100%] text-center pt-[50px] pr-[240px] pl-[240px] font-extrabold"> 
+            <div className="text-8xl leading-[100%] text-center pt-[50px] pr-[240px] pl-[240px] font-bold "> 
             GROWTH FOR CROSS BORDER REFERENCE
             
-            <div className="pt-[50px] text-6xl text-[#C62F9D]">
+            <div className="pt-[50px] text-6xl text-primary">
             17th - 18th JULY 2025
             </div>
 
-            <div className="text-6xl text-[#22A696]">
+            <div className="text-6xl text-secondary">
             LABADI BEACH HOTEL
             </div>
 
