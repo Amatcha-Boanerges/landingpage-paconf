@@ -20,6 +20,7 @@ export default {
 } satisfies Config
 
 //(Devon - putting these color notes here until Yannick(manger for this file) adds the following colors to the Tailwind theme.)
-//#05183E
-//#C62F9D
-//#22A696
+//#05183E - blue
+//#C62F9D - pink
+//#22A696 - green
+//#849ac0 - grey/blue (gradient)
