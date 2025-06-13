@@ -41,7 +41,7 @@ export default function WhyAttend() {
       <div className="max-w-6xl mx-auto space-y-10">
         {/* Section heading */}
         <header className="text-left space-y-4">
-          <h2 className="text-4xl md:text-5xl font-extrabold tracking-wide">
+          <h2 className="text-4xl md:text-5xl font-bold mb-4">
             Why attend the 2025 PA Conference
           </h2>
           <p className="text-xl md:text-2xl max-w-3xl text-gray-200">

@@ -7,7 +7,7 @@ export default function WhatYouWillLearn() {
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-stretch gap-0">
         {/* Text Section */}
         <div className="w-full md:w-2/3 text-white">
-          <h2 className="text-2xl md:text-3xl font-bold mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold mb-4">
             Here's what you will <span className="text-[#2EC4B6]">learn</span>
           </h2>
           <ul className="list-disc list-inside space-y-5 text-base md:text-lg">
