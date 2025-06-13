@@ -19,3 +19,7 @@ export default {
   plugins: [],
 } satisfies Config
 
+//(Devon - putting these color notes here until Yannick(manger for this file) adds the following colors to the Tailwind theme.)
+//#05183E
+//#C62F9D
+//#22A696

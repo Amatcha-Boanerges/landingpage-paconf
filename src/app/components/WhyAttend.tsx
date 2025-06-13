@@ -13,22 +13,22 @@ export default function WhyAttend() {
     {
       text: "Wants to broaden your scope of work beyond the borders of Ghana",
       image: "/images/attend2.jpg",
-      bgColor: "bg-secondary"//(tw),
+      bgColor: "bg-secondary", //(tw)
     },
     {
       text: "Is looking to equip yourself with insights, tools and relevant skills for the modern place of work",
       image: "/images/attend3.jpg",
-      bgColor: "bg-primary"//(tw),
+      bgColor: "bg-primary", //(tw)
     },
     {
       text: "Seeks to transform your way of work to keep you relevant to your executives",
       image: "/images/attend4.jpg",
-      bgColor: "bg-secondary"//(tw),
+      bgColor: "bg-secondary", //(tw)
     },
     {
       text: "Seeks to add value to your professional and personal life",
       image: "/images/attend5.jpg",
-      bgColor: "bg-primary"//(tw),
+      bgColor: "bg-primary", //(tw)
     },
   ];
 
@@ -40,11 +40,11 @@ export default function WhyAttend() {
     >
       <div className="max-w-6xl mx-auto space-y-10">
         {/* Section heading */}
-        <header className="text-center space-y-4">
-          <h2 className="text-3xl md:text-4xl font-extrabold uppercase tracking-wide">
+        <header className="text-left space-y-4">
+          <h2 className="text-4xl md:text-5xl font-extrabold tracking-wide">
             Why attend the 2025 PA Conference
           </h2>
-          <p className="text-lg md:text-xl max-w-2xl mx-auto text-gray-200">
+          <p className="text-xl md:text-2xl max-w-3xl text-gray-200">
             The PA Conference is for you if you are a Personal, Executive,
             Administrative, Business, or Project Assistant who:
           </p>
@@ -60,7 +60,7 @@ export default function WhyAttend() {
               {/* Text Section - Takes 1/3 of the width on medium+ screens
                   Uses conditional class to alternate position based on index */}
               <div
-                className={`w-full md:w-1/3 min-h-[250px] p-6 flex items-center text-left text-white font-semibold rounded-lg ${card.bgColor} ${
+                className={`w-full md:w-1/3 min-h-[250px] p-6 flex items-center text-left text-white font-bold text-2xl md:text-3xl rounded-lg ${card.bgColor} ${
                   index % 2 === 0 ? "md:order-1" : "md:order-2"
                 }`}
               >
@@ -93,8 +93,3 @@ export default function WhyAttend() {
     </section>
   );
 }
-
-
-//#05183E
-//#C62F9D
-//#22A696
