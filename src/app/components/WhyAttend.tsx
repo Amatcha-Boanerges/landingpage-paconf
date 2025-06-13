@@ -43,6 +43,7 @@ export default function WhyAttend() {
         <header className="text-left space-y-4">
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
             Why attend the 2025 PA Conference
+            <span className="text-[#2EC4B6]">?</span>
           </h2>
           <p className="text-xl md:text-2xl max-w-3xl text-gray-200">
             The PA Conference is for you if you are a Personal, Executive,
