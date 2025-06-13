@@ -33,7 +33,7 @@ const CountdownTimer: React.FC = () => {
     }, []);
 
     return (
-        <div className="w-full bg-[#061d49] text-white py-12 flex flex-col items-center">
+        <div className="w-full bg-pa-background text-white py-12 flex flex-col items-center">
             <h2 className="text-[24px] sm:text-[28px] font-semibold mb-10 text-center">
                 Countdown to PA Conference
             </h2>

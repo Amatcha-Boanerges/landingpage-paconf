@@ -3,7 +3,7 @@
 
 export default function AwaitYou() {
   return (
-    <section id="AwaitYou" className="bg-primary text-white py-10 px-4 text-center">
+    <section id="AwaitYou" className="bg-pa-background text-white py-10 px-4 text-center">
       {/* Section:What Awaits You */}
       <section className="flex flex-col items-center justify-center w-full">
 

@@ -3,7 +3,7 @@ import Image from "next/image";
 
 export default function Hero() {
   return (
-    <section id="hero" className="bg-[#05183E] text-white py-10 px-4 text-center">
+    <section id="hero" className="bg-pa-background text-white py-10 px-4 text-center">
 
           <div className="pt-[25px] flex justify-center"> 
     
