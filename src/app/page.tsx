@@ -1,6 +1,7 @@
 
 import Hero from './components/Hero';
 import AwaitYou from './components/AwaitYou';
+import CountdownTimer from './components/CountdownTimer';
 import WhyAttend from './components/WhyAttend';
 import PastAttendees from './components/PastAttendees';
 
@@ -13,6 +14,7 @@ export default function Page() {
       {/* <Header /> */}
       <Hero />
       <AwaitYou />
+      <CountdownTimer />
       <WhyAttend />
       <PastAttendees />
       {/* <Footer /> */}

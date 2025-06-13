@@ -1,6 +1,5 @@
 // app/_components/AwaitYou.tsx
 'use client';
-import CountdownTimer from './CountdownTimer';
 
 export default function AwaitYou() {
   return (
@@ -9,7 +8,7 @@ export default function AwaitYou() {
       <section className="flex flex-col items-center justify-center w-full">
 
         {/* #1: Header */}
-        <div className="z-30 -mb-12 rounded-t-[30px] px-6 py-10 text-center w-[80%] sm:w-[70%]"
+        <div className="z-30 -mb-12 rounded-t-[30px] px-6 py-10 text-center w-[50%] sm:w-[64%]"
           style={{ backgroundColor: '#d23c9d' }}>
           <h2 className="text-[32px] sm:text-[36px] font-extrabold leading-tight">
             What Awaits You
@@ -35,10 +34,6 @@ export default function AwaitYou() {
             Ghana, United States of America and United Arab Emirates
           </p>
         </div>
-
-
-        {/* #3: Countdown */}
-        <CountdownTimer />
 
         <div className="w-full max-w-[1200px] mx-auto px-4 py-10 flex justify-center">
           <div className="relative w-full pb-[56.25%] h-0">
