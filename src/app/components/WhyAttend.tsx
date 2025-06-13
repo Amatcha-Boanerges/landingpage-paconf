@@ -51,16 +51,16 @@ export default function WhyAttend() {
         </header>
 
         {/* Loop through card data to render each image + text pair */}
-        <div className="space-y-6">
+        <div className="space-y-0">
           {cards.map((card, index) => (
             <div
               key={index}
-              className="flex flex-col md:flex-row items-stretch gap-4 bg-[#05183E] rounded-xl p-4 shadow-md hover:scale-[1.01] transition-transform"
+              className="flex flex-col md:flex-row items-stretch gap-7 bg-[#05183E] rounded-3xl p-4 shadow-md hover:scale-[1.01] transition-transform"
             >
               {/* Text Section - Takes 1/3 of the width on medium+ screens
                   Uses conditional class to alternate position based on index */}
               <div
-                className={`w-full md:w-1/3 min-h-[250px] p-6 flex items-center text-left text-white font-bold text-2xl md:text-3xl rounded-lg ${card.bgColor} ${
+                className={`w-full md:w-1/3 min-h-[250px] p-6 flex items-center text-left text-white font-bold text-2xl md:text-3xl rounded-3xl ${card.bgColor} ${
                   index % 2 === 0 ? "md:order-1" : "md:order-2"
                 }`}
               >
@@ -83,7 +83,7 @@ export default function WhyAttend() {
                   alt="PA Conference Attendee"
                   width={800}
                   height={500}
-                  className="rounded-lg object-cover w-full h-full"
+                  className="rounded-3xl object-cover w-full h-full"
                 />
               </div>
             </div>
