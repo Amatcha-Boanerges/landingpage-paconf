@@ -14,6 +14,12 @@ export default {
         'pa-background': '#05183E',
         'neutral-dark': '#1C1C1C',
         'neutral-light': '#F7F8FA',
+      },
+      // These are the fonts that are used in the project.
+      fontFamily: {
+        poppins: ['Poppins', 'sans-serif'].join(', '),
+        montserrat: ['Montserrat', 'sans-serif'].join(', '),
+        inter: ['Inter', 'sans-serif'].join(', '),
       }
     },
   },
