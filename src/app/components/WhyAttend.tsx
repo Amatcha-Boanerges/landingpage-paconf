@@ -7,12 +7,12 @@ export default function WhyAttend() {
     {
       text: "Seeks to elevate your professional game of delivering outstanding results",
       image: "/images/attend1.jpg",
-      bgColor: "bg-pink-500",
+      bgColor: "bg-primary",
     },
     {
       text: "Wants to broaden your scope of work beyond the borders of Ghana",
       image: "/images/attend2.jpg",
-      bgColor: "bg-teal-500",
+      bgColor: "bg-secondary",
     },
     {
       text: "Is looking to equip yourself with insights, tools and relevant skills for the modern place of work",
@@ -34,7 +34,7 @@ export default function WhyAttend() {
   return (
     <section
       id="whyattend"
-      className="bg-[#0a2540] text-white py-16 px-4 md:px-8"
+      className="bg-pa-background text-white py-16 px-4 md:px-8"
     >
       <div className="max-w-6xl mx-auto space-y-10">
         <header className="text-center space-y-4">
