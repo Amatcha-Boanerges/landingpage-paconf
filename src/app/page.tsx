@@ -1,6 +1,7 @@
 
 import Hero from './components/Hero';
 import AwaitYou from './components/AwaitYou';
+import BookYourSeat from './components/BookYourSeat';
 import WhyAttend from './components/WhyAttend';
 // import Header from './_components/Header';
 // import Footer from './_components/Footer';
@@ -11,7 +12,9 @@ export default function Page() {
       {/* <Header /> */}
       <Hero />
       <AwaitYou />
+      <BookYourSeat />
       <WhyAttend />
+      <BookYourSeat />
       {/* <Footer /> */}
     </main>
   );
