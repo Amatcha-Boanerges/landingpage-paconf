@@ -5,10 +5,11 @@ const PastAttendees = () => {
         <section className="bg-white py-16 px-4">
             <div className="max-w-[1200px] mx-auto">
                 {/* Heading aligned with banner images */}
-                <div className="pl-8 sm:pl-20">
-                    <h2 className="text-[28px] sm:text-[36px] font-extrabold text-[#d23c9d] mb-12">
+                <div className="pl-12 sm:pl-28">
+                    <h2 className="text-[28px] sm:text-[36px] font-extrabold text-[#d23c9d] mb-12 pl-6 sm:pl-12">
                         Past Attendees
                     </h2>
+
                 </div>
 
                 <div className="space-y-10">
