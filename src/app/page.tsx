@@ -17,6 +17,7 @@ export default function Page() {
       <WhyAttend />
       <BookYourSeat />
       <WhatYouWillLearn />
+      <BookYourSeat />
       {/* <Footer /> */}
     </main>
   );
