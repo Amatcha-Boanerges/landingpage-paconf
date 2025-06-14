@@ -1,4 +1,5 @@
 // app/_components/Hero.tsx
+'use client'; // Enables client-side rendering in Next.js (required for interactivity)
 import Image from 'next/image';
 
 export default function Hero() {
