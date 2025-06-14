@@ -14,6 +14,7 @@ export default {
         'pa-background': '#05183E',
         'neutral-dark': '#1C1C1C',
         'neutral-light': '#F7F8FA',
+        'await-gradient': 'linear-gradient(to left, #f5515f, #9f041b)',
       },
       // These are the fonts that are used in the project.
       fontFamily: {

@@ -33,12 +33,12 @@ const CountdownTimer: React.FC = () => {
   }, []);
 
   return (
-    <div className="flex w-full flex-col items-center bg-pa-background py-12 text-white">
-      <h2 className="mb-10 text-center text-[24px] font-semibold sm:text-[28px]">
+    <div className="flex w-full flex-col items-center bg-pa-background py-12 px-4 text-white">
+      <h2 className="mb-10 text-center text-xl font-semibold sm:text-2xl md:text-3xl">
         Countdown to PA Conference
       </h2>
 
-      <div className="flex flex-wrap justify-center gap-6">
+      <div className="flex flex-wrap justify-center gap-6 sm:gap-8 md:gap-12">
         {[
           { label: 'Days', value: timeLeft.days },
           { label: 'Hours', value: timeLeft.hours },
@@ -46,10 +46,12 @@ const CountdownTimer: React.FC = () => {
           { label: 'Seconds', value: timeLeft.seconds },
         ].map((item) => (
           <div key={item.label} className="flex flex-col items-center">
-            <div className="flex h-28 w-28 items-center justify-center rounded-full border-4 border-teal-400 text-[32px] font-bold sm:text-[40px]">
+            <div className="flex items-center justify-center rounded-full border-4 border-teal-400 text-lg font-bold w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 sm:text-3xl md:text-4xl">
               {String(item.value).padStart(2, '0')}
             </div>
-            <span className="mt-2 text-[16px] font-medium sm:text-[18px]">{item.label}</span>
+            <span className="mt-2 text-sm sm:text-base md:text-lg font-medium">
+              {item.label}
+            </span>
           </div>
         ))}
       </div>
