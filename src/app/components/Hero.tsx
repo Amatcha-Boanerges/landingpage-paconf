@@ -1,6 +1,7 @@
 // app/_components/Hero.tsx
 'use client'; // Enables client-side rendering in Next.js (required for interactivity)
 import Image from 'next/image';
+import Button from './ui/Button';
 
 export default function Hero() {
   return (
@@ -13,6 +14,12 @@ export default function Hero() {
         GROWTH FOR CROSS BORDER REFERENCE
         <div className="pt-[50px] text-6xl text-primary">17th - 18th JULY 2025</div>
         <div className="text-6xl text-secondary">LABADI BEACH HOTEL</div>
+      </div>
+
+      <div className="mt-8">
+        <Button variant="primary" size="lg">
+          Register Now
+        </Button>
       </div>
     </section>
   );
