@@ -14,11 +14,14 @@ export async function POST(request: Request) {
     console.log('RSVP Form Data:', data);
 
     // Send confirmation email
-    await sendRSVPConfirmation(data.email, data.name);
+    const emailResult = await sendRSVPConfirmation(data.email, data.name);
+    const emailSent = emailResult !== null;
 
     return NextResponse.json({ 
       success: true,
-      message: 'RSVP submitted successfully. A confirmation email has been sent.'
+      message: emailSent 
+        ? 'RSVP submitted successfully. A confirmation email has been sent.'
+        : 'RSVP submitted successfully.'
     });
   } catch (error: unknown) {
     console.error('Error processing RSVP:', error);

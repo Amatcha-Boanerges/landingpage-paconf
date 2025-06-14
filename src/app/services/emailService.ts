@@ -1,15 +1,5 @@
 import sgMail from '@sendgrid/mail';
 
-if (!process.env.SENDGRID_API_KEY) {
-  throw new Error('SENDGRID_API_KEY is not configured in environment variables');
-}
-
-if (!process.env.EMAIL_FROM) {
-  throw new Error('EMAIL_FROM is not configured in environment variables');
-}
-
-sgMail.setApiKey(process.env.SENDGRID_API_KEY);
-
 interface SendGridError {
   message: string;
   code: number;
@@ -19,10 +9,18 @@ interface SendGridError {
 }
 
 export async function sendRSVPConfirmation(to: string, name: string) {
+  // Check for environment variables at runtime
+  if (!process.env.SENDGRID_API_KEY || !process.env.EMAIL_FROM) {
+    console.warn('SendGrid configuration missing. Skipping email send.');
+    return null;
+  }
+
   try {
+    sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+
     const msg = {
       to,
-      from: process.env.EMAIL_FROM!,
+      from: process.env.EMAIL_FROM,
       subject: 'Thank you for your RSVP to PA Conference 2024',
       text: `Dear ${name},\n\nThank you for registering for PA Conference 2024. We look forward to seeing you there!\n\nBest regards,\nPA Conference Team`,
       html: `

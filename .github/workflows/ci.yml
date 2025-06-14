@@ -32,6 +32,10 @@ jobs:
 
       - name: Build project
         run: npm run build
+        env:
+          # Mock environment variables for build
+          SENDGRID_API_KEY: 'mock-key-for-ci'
+          EMAIL_FROM: 'mock@example.com'
 
     # If you have tests, you can add a step like this:
     # - name: Run tests
