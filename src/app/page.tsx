@@ -1,4 +1,3 @@
-
 import Hero from './components/Hero';
 import AwaitYou from './components/AwaitYou';
 import CountdownTimer from './components/CountdownTimer';

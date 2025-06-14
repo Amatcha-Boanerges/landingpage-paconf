@@ -1,15 +1,73 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Fivesixfive PA Conference Website
+
+A modern, performant website for the Fivesixfive PA Conference built with Next.js 13+.
+
+## 🚀 Tech Stack
+
+- **Framework**: Next.js 13+ (App Router, TypeScript)
+- **Styling**: Tailwind CSS + Headless UI
+- **Animation**: Framer Motion
+- **Forms**: React Hook Form + Zod
+- **Email**: SendGrid
+- **Data**: JSON / Markdown (flat files)
+- **Analytics**: Plausible / Vercel Analytics
+- **Deployment**: Vercel
+
+## 📁 Current Project Structure
+
+```
+fivesixfive-website/
+├── public/              # Static assets
+├── src/
+│   ├── app/            # Next.js 13 app directory
+│   │   ├── components/ # App-level components
+│   │   ├── page.tsx    # Home page
+│   │   └── layout.tsx  # Root layout
+│   └── ...
+├── project_setup/      # Project documentation
+└── [config files]      # Various config files
+```
+
+## 🎯 Project Goals
+
+1. Create a modern, responsive conference website
+2. Implement RSVP functionality with email confirmations
+3. Build modular, reusable components
+4. Ensure excellent performance and SEO
+5. Provide smooth animations and transitions
+
+## 🛠️ Development
+
+1. Clone the repository
+2. Install dependencies: `npm install`
+3. Run development server: `npm run dev`
+4. Build for production: `npm run build`
+
+## 📝 Tasks
+
+See `project_setup/tasks.md` for detailed development tasks and progress.
+
+## 🔒 Environment Variables
+
+Required environment variables:
+
+- `NEXT_PUBLIC_SITE_URL`: The base URL of the site
+- `SENDGRID_API_KEY`: For email functionality (coming soon)
+
+## 📄 License
+
+MIT
 
 ## 📦 Prerequisites
 
 Ensure the following are installed:
+
 - [Node.js (LTS version)](https://nodejs.org/)
 - [Git](https://git-scm.com/)
 
 ---
 
 ## 🔁 Clone the Repository and move to the develop branch
-
 
 ```bash
 git clone https://github.com/Amatcha-Boanerges/landingpage-paconf.git
@@ -18,7 +76,6 @@ git checkout develop
 git pull origin develop
 
 ```
-
 
 ## 📂 Install Dependencies
 
@@ -37,7 +94,6 @@ This installs all required packages into node_modules.
 Environment files (like .env) are not committed to the repository.
 Check for an .env.example file, or
 Contact the project maintainer to get the .env file, then:
-
 
 ## 🏗️ Build and Run the App
 
@@ -72,7 +128,7 @@ Check the Project setup folder: Architecture, Git cheat sheet, UI-UX Guidelines 
 ## Next Steps - Create a new feature branch, push first to initialize the branch, start working on it
 
 ```bash
-git checkout -b feat/hero-section 
+git checkout -b feat/hero-section
 git checkout -b feat/awaityou
 git checkout -b feat/whyattend
 git commit -m "first version of why attend"
