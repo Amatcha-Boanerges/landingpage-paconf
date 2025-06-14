@@ -60,7 +60,7 @@ export default function TestimonialSlider({ testimonials }: TestimonialSliderPro
             {/* Content */}
             <div className="flex-1 text-center md:text-left">
               <blockquote className="mb-4 text-lg italic text-gray-700">
-                "{currentTestimonial.quote}"
+              &quot;&quot;{currentTestimonial.quote}&quot;&quot;
               </blockquote>
               <div className="font-semibold text-pa-background">
                 {currentTestimonial.name}
