@@ -1,5 +1,4 @@
 // app/_components/Hero.tsx
-
 export default function Hero() {
   return (
     <section id="hero" className="bg-secondary text-white py-10 px-4 text-center">
