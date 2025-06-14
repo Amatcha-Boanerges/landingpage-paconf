@@ -1,0 +1,31 @@
+{
+  "testimonials": [
+    {
+      "id": 1,
+      "name": "Sarah Johnson",
+      "role": "Executive Assistant",
+      "company": "Tech Solutions Ltd",
+      "image": "/images/testimonials/sarah.jpg",
+      "quote": "The PA Conference was transformative for my career. The networking opportunities and insights shared were invaluable.",
+      "year": 2024
+    },
+    {
+      "id": 2,
+      "name": "Michael Chen",
+      "role": "Personal Assistant",
+      "company": "Global Enterprises",
+      "image": "/images/testimonials/michael.jpg",
+      "quote": "I gained practical skills and strategies that I've implemented immediately in my role. Highly recommended!",
+      "year": 2024
+    },
+    {
+      "id": 3,
+      "name": "Emma Thompson",
+      "role": "Business Assistant",
+      "company": "Innovation Corp",
+      "image": "/images/testimonials/emma.jpg",
+      "quote": "The conference provided excellent opportunities to connect with peers and learn from industry leaders.",
+      "year": 2024
+    }
+  ]
+} 

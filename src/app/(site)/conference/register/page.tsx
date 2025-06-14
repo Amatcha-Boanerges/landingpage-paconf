@@ -1,3 +1,4 @@
+'use client'; // Enables client-side rendering in Next.js (required for interactivity)
 import RSVPForm from '../../../components/forms/RSVPForm';
 
 export default function RegisterPage() {
