@@ -15,8 +15,20 @@ export default function RSVPForm() {
     resolver: zodResolver(rsvpSchema),
   });
 
-  const onSubmit = (data: RSVPFormData) => {
-    console.log(data);
+  const onSubmit = async (data: RSVPFormData) => {
+    try {
+      const response = await fetch('/api/rsvp', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+      const result = await response.json();
+      console.log('RSVP Submission Result:', result);
+    } catch (error) {
+      console.error('Error submitting RSVP:', error);
+    }
   };
 
   return (
