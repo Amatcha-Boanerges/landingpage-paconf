@@ -39,9 +39,15 @@ export default function TestimonialSlider({ testimonials }: TestimonialSliderPro
   return (
     <section className="bg-white px-4 py-16">
       <div className="mx-auto max-w-6xl">
-        <h2 className="mb-12 text-center text-3xl font-bold text-pa-background">
-          What Our Attendees Say
-        </h2>
+        <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-5xl font-bold text-primary mb-6">
+            What Our Attendees Say
+            </h2>
+            <p className="text-xl text-gray-600">
+              Don't just take our word for it—see what attendees achieved after just one conference.
+            </p>
+        </div>
+
 
         <div className="relative">
           {/* Testimonial Card */}

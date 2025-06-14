@@ -1,36 +1,57 @@
-import Image from 'next/image';
-const learn1 = '/images/learn1.jpg';
+import React from 'react';
+import { CheckCircle, Zap, TrendingUp } from 'lucide-react';
 
 export default function WhatYouWillLearn() {
   return (
-    <section className="w-full bg-[#05183E] px-4 py-12 md:px-8">
-      <div className="mx-auto flex max-w-6xl flex-col items-stretch gap-0 md:flex-row">
-        {/* Text Section */}
-        <div className="w-full text-white md:w-2/3">
-          <h2 className="mb-4 text-4xl font-bold md:text-5xl">
-            Here&apos;s what you will <span className="text-[#2EC4B6]">learn</span>
-          </h2>
-          <ul className="list-inside list-disc space-y-5 text-base md:text-lg">
-            <li>Building a corporate image from the unseen seat</li>
-            <li>Public Speaking – A relevant cross-border skill for success</li>
-            <li>Growth ingredients of a PA/EA for international appeal</li>
-            <li>Where do I go from here – The Career Path of a PA/EA</li>
-            <li>Creating relevance at the highest level as a PA/EA</li>
-            <li>The Digital Tools available to the PA/EA for international relevance</li>
-            <li>Managing the Multi-dimensional needs of an International Executive</li>
-            <li>Managing the Multiple Demands on the PA/EA for Mental Health</li>
-          </ul>
-        </div>
+    <section className="py-20 bg-pa-background text-white">
+      <div className="container mx-auto px-4">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-5xl font-bold mb-6">
+              Why This Conference is <span className="text-primary">Different</span>
+            </h2>
+            <p className="text-xl opacity-90 max-w-3xl mx-auto">
+              Most PA training is theoretical and outdated. We deliver practical, modern strategies you can implement immediately to build a corporate image from the unseen seat, improve Public Speaking, develop relevant cross-border skill for success.
+            </p>
+          </div>
 
-        {/* Image Section */}
-        <div className="min-h-[250px] w-full md:w-1/2">
-          <Image
-            src={learn1}
-            alt="Woman attending conference"
-            width={800}
-            height={500}
-            className="h-full w-full rounded-3xl object-cover"
-          />
+          <div className="grid md:grid-cols-3 gap-8">
+            <div className="text-center p-8">
+              <div className="w-16 h-16 bg-[#c62f9d] rounded-full flex items-center justify-center mx-auto mb-6">
+                <CheckCircle className="w-8 h-8 text-white" />
+              </div>
+              <h3 className="text-2xl font-bold mb-4">Proven Tactics</h3>
+              <p className="opacity-80">
+                No theory, just what works in today's business world. Where do I go from here? The Career Path of a PA/EA, Growth ingredients of a PA/EA, Creating relevance at the highest level as a PA/EA
+              </p>
+            </div>
+
+            <div className="text-center p-8">
+              <div className="w-16 h-16 bg-[#22a796] rounded-full flex items-center justify-center mx-auto mb-6">
+                <Zap className="w-8 h-8 text-white" />
+              </div>
+              <h3 className="text-2xl font-bold mb-4">Develop international relevance</h3>
+              <p className="opacity-80">
+                Walk away with Tools, templates, playbooks available to the PA/EA you can start using the moment you're back in the office. Managing the Multi-dimensional needs and multiple demands on an International Executive, PA/EA for Mental Health
+              </p>
+            </div>
+
+            <div className="text-center p-8">
+              <div className="w-16 h-16 bg-gradient-to-br from-[#c62f9d] to-[#22a796] rounded-full flex items-center justify-center mx-auto mb-6">
+                <TrendingUp className="w-8 h-8 text-white" />
+              </div>
+              <h3 className="text-2xl font-bold mb-4">Skills That Get You Promoted</h3>
+              <p className="opacity-80">
+                Focus on the specific competencies that separate assistants from strategic business partners. 
+              </p>
+            </div>
+          </div>
+
+          <div className="text-center mt-12">
+            <button className="bg-[#c62f9d] hover:bg-[#a02581] text-white font-bold py-4 px-8 rounded-full text-lg transition-all hover:scale-105 shadow-lg">
+              Reserve Your Spot
+            </button>
+          </div>
         </div>
       </div>
     </section>

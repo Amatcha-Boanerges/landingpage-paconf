@@ -6,7 +6,9 @@ const PastAttendees = () => {
       <div className="mx-auto max-w-[1200px]">
         {/* Heading aligned with banner images */}
         <div className="text-center">
-            <h3 className="text-2xl font-bold text-[#1C1C1C] mb-8">Past Attendees</h3>
+            <h2 className="text-3xl md:text-5xl font-bold text-[#1C1C1C] mb-20">
+              We trained PAs from the following Companies
+            </h2>
             <div className="flex flex-wrap justify-center items-center gap-8 opacity-60">
               <div className="flex items-center gap-2">
                 <div className="w-12 h-12 bg-gray-300 rounded"></div>

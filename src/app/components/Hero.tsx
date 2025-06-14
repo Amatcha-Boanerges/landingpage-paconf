@@ -51,9 +51,16 @@ export default function Hero() {
         </div>
 
         <div className="mt-10">
-          <Button variant="primary" size="lg">
-            Register Now
-          </Button>
+        <a
+          href="https://docs.google.com/forms/d/e/1FAIpQLSfRHQWzCp1ppSJcRaqqEdZAvcf7xnqEe-o0iQMoUSBOSkyd-Q/viewform"
+          target="_blank"
+          rel="noopener noreferrer"
+          className=""
+          >
+            <Button variant="primary" size="lg">
+              Register Now
+            </Button>
+        </a>
         </div>
       </div>
     </section>

@@ -38,10 +38,11 @@ export default function WhyAttend() {
       <div className="mx-auto max-w-6xl space-y-10">
         {/* Section heading */}
         <header className="space-y-4 text-left">
-          <h2 className="mb-4 text-4xl font-bold md:text-5xl">
-            Why attend the 2025 PA Conference
-            <span className="text-[#2EC4B6]">?</span>
-          </h2>
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-5xl font-bold mb-6">
+            Why attend the  <span className="text-secondary">2025 PA Conference</span>
+            </h2>
+          </div>
           <p className="max-w-3xl text-xl text-gray-200 md:text-2xl">
             The PA Conference is for you if you are a Personal, Executive, Administrative, Business,
             or Project Assistant who:
