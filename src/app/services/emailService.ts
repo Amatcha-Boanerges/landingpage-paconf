@@ -1,0 +1,52 @@
+import sgMail from '@sendgrid/mail';
+
+if (!process.env.SENDGRID_API_KEY) {
+  throw new Error('SENDGRID_API_KEY is not configured in environment variables');
+}
+
+if (!process.env.EMAIL_FROM) {
+  throw new Error('EMAIL_FROM is not configured in environment variables');
+}
+
+sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+
+export async function sendRSVPConfirmation(to: string, name: string) {
+  try {
+    const msg = {
+      to,
+      from: process.env.EMAIL_FROM!,
+      subject: 'Thank you for your RSVP to PA Conference 2024',
+      text: `Dear ${name},\n\nThank you for registering for PA Conference 2024. We look forward to seeing you there!\n\nBest regards,\nPA Conference Team`,
+      html: `
+        <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
+          <h2 style="color: #333;">Thank you for your RSVP!</h2>
+          <p>Dear ${name},</p>
+          <p>Thank you for registering for PA Conference 2024. We look forward to seeing you there!</p>
+          <p>Best regards,<br>PA Conference Team</p>
+        </div>
+      `,
+    };
+
+    const response = await sgMail.send(msg);
+    console.log('Email sent successfully:', response);
+    return response;
+  } catch (error: any) {
+    console.error('Detailed SendGrid error:', {
+      message: error.message,
+      code: error.code,
+      response: error.response?.body,
+    });
+
+    if (error.code === 403) {
+      throw new Error(
+        'SendGrid authentication failed. Please check your API key and sender verification.'
+      );
+    }
+
+    if (error.code === 401) {
+      throw new Error('SendGrid API key is invalid or unauthorized.');
+    }
+
+    throw new Error(`Failed to send email: ${error.message}`);
+  }
+} 
