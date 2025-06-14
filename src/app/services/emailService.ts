@@ -10,6 +10,14 @@ if (!process.env.EMAIL_FROM) {
 
 sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
+interface SendGridError {
+  message: string;
+  code: number;
+  response?: {
+    body?: unknown;
+  };
+}
+
 export async function sendRSVPConfirmation(to: string, name: string) {
   try {
     const msg = {
@@ -30,23 +38,25 @@ export async function sendRSVPConfirmation(to: string, name: string) {
     const response = await sgMail.send(msg);
     console.log('Email sent successfully:', response);
     return response;
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error('Detailed SendGrid error:', {
-      message: error.message,
-      code: error.code,
-      response: error.response?.body,
+      message: (error as SendGridError).message,
+      code: (error as SendGridError).code,
+      response: (error as SendGridError).response?.body,
     });
 
-    if (error.code === 403) {
+    const err = error as SendGridError;
+
+    if (err.code === 403) {
       throw new Error(
         'SendGrid authentication failed. Please check your API key and sender verification.'
       );
     }
 
-    if (error.code === 401) {
+    if (err.code === 401) {
       throw new Error('SendGrid API key is invalid or unauthorized.');
     }
 
-    throw new Error(`Failed to send email: ${error.message}`);
+    throw new Error(`Failed to send email: ${err.message}`);
   }
 } 
