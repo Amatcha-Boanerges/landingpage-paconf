@@ -9,16 +9,16 @@ export default function AwaitYou() {
       <section className="w-full flex flex-col items-center justify-center">
         <div className="w-full max-w-[1200px] px-6">
           {/* #1: Header */}
-          <div
-            className="relative z-30 -mb-12 rounded-t-[30px] bg-[#d23c9d] px-6 py-10 text-center"
-          >
-            <h2 className="text-[32px] font-extrabold leading-tight sm:text-[36px]">
-              What Awaits You
-            </h2>
+          <div className="relative z-30 -mb-12 w-full px-10">
+            <div className="mx-auto w-full max-w-5xl rounded-3xl bg-primary px-6 py-10 text-center">
+              <h2 className="text-[28px] font-extrabold leading-tight sm:text-[32px]">
+                What Awaits You
+              </h2>
+            </div>
           </div>
 
           {/* #2: Highlights */}
-          <div className="rounded-t-[30px] bg-[#21b191] px-6 py-16 text-center">
+          <div className="rounded-t-[30px] bg-secondary px-6 py-16 text-center">
             <p className="text-[30px] font-bold leading-relaxed sm:text-[40px]">
               Keynote | Plenary Speaker | Panel Discussion <br />
               Concurrent Sessions | Lots Of Learning | More Fun
@@ -26,11 +26,11 @@ export default function AwaitYou() {
           </div>
 
           {/* Bottom Segment */}
-          <div className="-mt-[8px] rounded-b-[30px] bg-[#d23c9d] px-6 py-10 text-center">
-            <h3 className="text-[30px] font-bold leading-relaxed text-white sm:text-[40px]">
+          <div className="-mt-[8px] rounded-b-[30px] bg-primary px-6 py-10 text-center">
+            <h3 className="text-[15px] font-bold leading-relaxed text-white sm:text-[20px]">
               Events speakers are drawn from:
             </h3>
-            <p className="text-[30px] font-bold leading-relaxed text-white sm:text-[40px]">
+            <p className="text-[15px] font-bold leading-relaxed text-white sm:text-[20px]">
               Ghana, United States of America and United Arab Emirates
             </p>
           </div>

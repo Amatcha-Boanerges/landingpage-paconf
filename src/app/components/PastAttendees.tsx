@@ -5,32 +5,37 @@ const PastAttendees = () => {
     <section className="bg-white px-4 py-16">
       <div className="mx-auto max-w-[1200px]">
         {/* Heading aligned with banner images */}
-        <div className="pl-8 sm:pl-20">
-          <h2 className="mb-12 text-[28px] font-extrabold text-[#d23c9d] sm:text-[36px]">
-            Past Attendees
-          </h2>
-        </div>
-
-        <div className="space-y-10">
-          {/* Partner Logos */}
-          <div className="flex justify-center">
-            <img
-              src="/images/past-attendees/partners-logos.png"
-              alt="Partner Logos"
-              className="w-full max-w-4xl object-contain transition-transform duration-300 hover:scale-105"
-            />
+        <div className="text-center">
+            <h3 className="text-2xl font-bold text-[#1C1C1C] mb-8">Past Attendees</h3>
+            <div className="flex flex-wrap justify-center items-center gap-8 opacity-60">
+              <div className="flex items-center gap-2">
+                <div className="w-12 h-12 bg-gray-300 rounded"></div>
+                <span className="text-lg font-semibold">PwC</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <div className="w-12 h-12 bg-gray-300 rounded"></div>
+                <span className="text-lg font-semibold">GCB Bank</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <div className="w-12 h-12 bg-gray-300 rounded"></div>
+                <span className="text-lg font-semibold">Ghana Cocoa Board</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <div className="w-12 h-12 bg-gray-300 rounded"></div>
+                <span className="text-lg font-semibold">CalBank</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <div className="w-12 h-12 bg-gray-300 rounded"></div>
+                <span className="text-lg font-semibold">Enterprise Group</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <div className="w-12 h-12 bg-gray-300 rounded"></div>
+                <span className="text-lg font-semibold">University of Ghana</span>
+              </div>
+            </div>
           </div>
 
-          {/* Client Logos */}
-          <div className="flex justify-center">
-            <img
-              src="/images/past-attendees/clients-logos.png"
-              alt="Client Logos"
-              className="w-full max-w-4xl object-contain transition-transform duration-300 hover:scale-105"
-            />
-          </div>
         </div>
-      </div>
     </section>
   );
 };

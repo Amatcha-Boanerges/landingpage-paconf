@@ -1,5 +1,3 @@
-
-// app/_components/Hero.tsx
 'use client';
 import Image from 'next/image';
 import Button from './ui/Button';
@@ -8,56 +6,56 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="bg-pa-background px-4 py-10 text-center text-white"
+      className="relative min-h-[120vh] w-full overflow-hidden bg-pa-background text-white" 
     >
-      {/* Responsive Logo */}
-      <div className="flex justify-center pt-6">
-        <Image
-          src="/PA_conference_logo.png"
-          alt="Hero Image"
-          width={600}
-          height={233}
-          priority
-          className="w-full max-w-md sm:max-w-lg md:max-w-xl"
-        />
-      </div>
-
-      {/* Title & Details */}
-      <div className="mx-auto max-w-6xl pt-12 px-4 sm:px-6 lg:px-8">
-      <video
-        className="absolute top-0 left-0 w-full h-full object-cover z-0"
+      {/* 🔄 Background Video */}
+      {/* <video
+        className="absolute top-0 left-0 h-full w-full object-cover z-0"
         autoPlay
         loop
         muted
         playsInline
-        >
+      >
         <source src="/videos/hero-bg.mp4" type="video/mp4" />
         Your browser does not support the video tag.
-      </video>
+      </video> */}
 
+      {/* 🔲 Overlay (optional for darkening video) */}
+      {/* <div className="absolute top-0 left-0 h-full w-full bg-black bg-opacity-80 z-10"></div> */}
 
-        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold leading-tight">
-          GROWTH FOR CROSS BORDER REFERENCE
-        </h1>
-
-        <div className="pt-6 text-2xl sm:text-3xl md:text-6xl font-bold text-primary">
-          17th - 18th JULY 2025
+      {/* 📦 Foreground Content */}
+      <div className="relative z-20 flex flex-col items-center justify-center min-h-screen text-center px-4">
+        <div className="mb-6">
+          <Image
+            src="/PA_conference_logo.png"
+            alt="Hero Image"
+            width={600}
+            height={233}
+            priority
+            className="w-full max-w-md sm:max-w-lg md:max-w-xl"
+          />
         </div>
 
-        <div className="text-2xl sm:text-3xl md:text-6xl font-bold text-secondary">
-          LABADI BEACH HOTEL
-        </div>
-      </div>
+        <div className="max-w-6xl">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold leading-tight tracking-wide">
+            GROWTH FOR CROSS BORDER REFERENCE
+          </h1>
 
-      {/* Button */}
-      <div className="mt-10">
-        <Button variant="primary" size="lg">
-          Register Now
-        </Button>
+          <div className="pt-6 text-2xl sm:text-3xl md:text-6xl font-bold text-primary">
+            17th - 18th JULY 2025
+          </div>
+
+          <div className="text-2xl sm:text-3xl md:text-6xl font-bold text-secondary">
+            LABADI BEACH HOTEL
+          </div>
+        </div>
+
+        <div className="mt-10">
+          <Button variant="primary" size="lg">
+            Register Now
+          </Button>
+        </div>
       </div>
     </section>
-
-    
-
   );
 }
