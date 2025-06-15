@@ -11,7 +11,7 @@ export default function AwaitYou() {
         <div className="z-30 -mb-12 rounded-t-[30px] px-6 py-10 text-center w-[50%] sm:w-[64%]"
           style={{ backgroundColor: '#d23c9d' }}>
           <h2 className="text-[32px] sm:text-[36px] font-extrabold leading-tight">
-            What Awaits You
+            What awaits You
           </h2>
         </div>
 
