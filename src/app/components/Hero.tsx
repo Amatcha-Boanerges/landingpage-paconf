@@ -6,7 +6,7 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="relative min-h-[120vh] w-full overflow-hidden bg-pa-background text-white" 
+      className="relative min-h-screen w-full bg-pa-background text-white" 
     >
       {/* 🔄 Background Video */}
       {/* <video
@@ -50,16 +50,16 @@ export default function Hero() {
           </div>
         </div>
 
-        <div className="mt-10">
-        <a
+        <div className="mt-10 flex items-center justify-center">
+          <a
           href="https://docs.google.com/forms/d/e/1FAIpQLSfRHQWzCp1ppSJcRaqqEdZAvcf7xnqEe-o0iQMoUSBOSkyd-Q/viewform"
           target="_blank"
           rel="noopener noreferrer"
           className=""
           >
-            <Button variant="primary" size="lg">
-              Register Now
-            </Button>
+          <Button variant="primary" size="lg">
+            Register Now
+          </Button>
         </a>
         </div>
       </div>
