@@ -4,11 +4,11 @@ const learn1 = "/images/learn1.jpg";
 export default function WhatYouWillLearn() {
   return (
     <section className="w-full bg-[#05183E] py-12 px-4 md:px-8">
-      <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-stretch gap-0">
+      <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-stretch gap-4">
         {/* Text Section */}
         <div className="w-full md:w-2/3 text-white">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            Here&apos;s what you will <span className="text-[#2EC4B6]">learn</span>
+          <h2 className="text-4xl md:text-3xl font-bold mb-4">
+            Here's what you will <span className="text-[#2EC4B6]">learn</span>
           </h2>
           <ul className="list-disc list-inside space-y-5 text-base md:text-lg">
             <li>Building a corporate image from the unseen seat</li>
