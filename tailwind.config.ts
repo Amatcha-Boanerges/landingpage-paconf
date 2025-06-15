@@ -22,9 +22,29 @@ export default {
         montserrat: ['Montserrat', 'sans-serif'].join(', '),
         inter: ['Inter', 'sans-serif'].join(', '),
       },
+      keyframes: {
+        'scroll-left': {
+          '0%': { transform: 'translateX(0%)' },
+          '100%': { transform: 'translateX(-33.3333%)' },
+        },
+      },
+      animation: {
+        'scroll-left': 'scroll-left 40s linear infinite',
+      },
     },
   },
-  plugins: [],
+  plugins: [
+    function ({ addUtilities }: { addUtilities: (utilities: Record<string, any>) => void }) {
+      addUtilities({
+        '.paused': {
+          'animation-play-state': 'paused',
+        },
+        '.running': {
+          'animation-play-state': 'running',
+        },
+      });
+    },
+  ],
 } satisfies Config;
 
 //(Devon - putting these color notes here until Yannick(manger for this file) adds the following colors to the Tailwind theme.)
