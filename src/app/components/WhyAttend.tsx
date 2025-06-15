@@ -1,45 +1,47 @@
-"use client"; // Enables client-side rendering in Next.js (required for interactivity)
+//*SECURITY & STAKEHOLDER NOTES AT BOTTOM*
 
-import Image from "next/image"; // Secure image optimization via Next.js
+"use client"; // Enables client-side rendering for interactivity (e.g., hover effects)
+
+import Image from "next/image"; // Imports Next.js optimized image component
 
 export default function WhyAttend() {
-  // Static array of card data — ensures no direct user input (protects from XSS and injection)
+  // Static array of card content: each object includes text, image path, and background color class
   const cards = [
     {
       text: "Seeks to elevate your professional game of delivering outstanding results",
       image: "/images/attend1.jpg",
-      bgColor: "bg-primary", //(tw)See Tailwind colors(tailwind.config.ts)
+      bgColor: "bg-primary", // Class defined in tailwind.config.ts
     },
     {
       text: "Wants to broaden your scope of work beyond the borders of Ghana",
       image: "/images/attend2.jpg",
-      bgColor: "bg-secondary", //(tw)
+      bgColor: "bg-secondary",
     },
     {
       text: "Is looking to equip yourself with insights, tools and relevant skills for the modern place of work",
       image: "/images/attend3.jpg",
-      bgColor: "bg-primary", //(tw)
+      bgColor: "bg-primary",
     },
     {
       text: "Seeks to transform your way of work to keep you relevant to your executives",
       image: "/images/attend4.jpg",
-      bgColor: "bg-secondary", //(tw)
+      bgColor: "bg-secondary",
     },
     {
       text: "Seeks to add value to your professional and personal life",
       image: "/images/attend5.jpg",
-      bgColor: "bg-primary", //(tw)
+      bgColor: "bg-primary",
     },
   ];
 
   return (
-    // Section container with dark background and white text for accessibility
+    // Top-level section for the "Why Attend" content; styled with custom brand background
     <section
       id="whyattend"
       className="bg-[#05183E] text-white py-16 px-4 md:px-8"
     >
       <div className="max-w-6xl mx-auto space-y-10">
-        {/* Section heading */}
+        {/* Header with main title and description */}
         <header className="text-left space-y-4">
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
             Why attend the 2025 PA Conference
@@ -51,15 +53,14 @@ export default function WhyAttend() {
           </p>
         </header>
 
-        {/* Loop through card data to render each image + text pair */}
+        {/* Render each card using the data array */}
         <div className="space-y-0">
           {cards.map((card, index) => (
             <div
               key={index}
               className="flex flex-col md:flex-row items-stretch gap-7 bg-[#05183E] rounded-3xl p-4 shadow-md hover:scale-[1.01] transition-transform"
             >
-              {/* Text Section - Takes 1/3 of the width on medium+ screens
-                  Uses conditional class to alternate position based on index */}
+              {/* Text block: placed left or right depending on row index */}
               <div
                 className={`w-full md:w-1/3 min-h-[250px] p-6 flex items-center text-left text-white font-bold text-2xl md:text-3xl rounded-3xl ${card.bgColor} ${
                   index % 2 === 0 ? "md:order-1" : "md:order-2"
@@ -68,17 +69,12 @@ export default function WhyAttend() {
                 {card.text}
               </div>
 
-              {/* Image Section - Takes 2/3 of the width
-                  Alternates image position just like the text */}
+              {/* Image block: alternates with text block by using order classes */}
               <div
                 className={`w-full md:w-2/3 min-h-[250px] ${
                   index % 2 === 0 ? "md:order-2" : "md:order-1"
                 }`}
               >
-                {/* Next.js Image optimization improves security and performance by:
-                    - Preventing path traversal attacks
-                    - Serving responsive images
-                    - Preventing layout shifts */}
                 <Image
                   src={card.image}
                   alt="PA Conference Attendee"
@@ -94,3 +90,23 @@ export default function WhyAttend() {
     </section>
   );
 }
+
+//Security Adherence Notes:
+
+// No user input is used—prevents injection/XSS risks.
+
+// next/image ensures safe and optimized image rendering (avoids URL/path traversal issues).
+
+//  No external script injection, form handling, or dynamic imports that could compromise content security.
+
+//565 Stakeholder Notes:
+
+//   No user input involved – The text and images are pre-written in the code, so there's no way for a user to enter harmful content or break anything.
+
+//  Safe image loading – We use a secure image method that prevents loading fake or unsafe files, and keeps the site fast.
+
+//  Consistent layout – Alternating image and text positions are controlled by logic in the code — there’s no room for outside interference or bugs.
+
+//  Tailwind CSS – All visual styling is handled with a trusted design framework, so there’s no risk of accidental exposure to unsafe code.
+
+//  Text is fixed and controlled – All the content is hardcoded by the developer, making the component stable and resistant to security threats.
