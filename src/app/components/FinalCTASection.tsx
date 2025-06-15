@@ -3,7 +3,7 @@ import { Calendar, Users, Shield } from 'lucide-react';
 
 export default function FinalCTASection() {
   return (
-    <section className="py-20 bg-gradient-to-br from-primary to-secondary text-white">
+    <section className="py-20 bg-pa-background text-white">
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl md:text-5xl font-bold mb-6">
