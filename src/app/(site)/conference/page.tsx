@@ -8,12 +8,14 @@ import WhatYouWillLearn from '../../components/WhatYouWillLearn';
 import TestimonialSlider from '../../components/TestimonialSlider';
 import FinalCTASection from '../../components/FinalCTASection';
 import { getTestimonials } from '@/lib/contentParser';
+import ProblemSection from '@/app/components/ProblemSection';
 
 export default async function ConferencePage() {
   const testimonials = await getTestimonials();
   return (
     <main className="min-h-screen bg-white text-black">
       <Hero />
+      <ProblemSection />
       <AwaitYou />
       <CountdownTimer />
       {/* <BookYourSeat /> */}
