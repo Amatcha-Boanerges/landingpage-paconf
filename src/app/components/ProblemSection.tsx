@@ -25,7 +25,7 @@ export default function ProblemSection() {
                   <h3 className="text-2xl font-bold text-[#1C1C1C]">Overwhelmed</h3>
                 </div>
                 <div className="space-y-4 text-[#1C1C1C] text-base md:text-lg">
-                  <p>You're efficient and dependable, but stuck in logistics instead of work that gets noticed.</p>
+                  <p>You&apos;re efficient and dependable, but stuck in logistics instead of work that gets noticed.</p>
                   <ul className="list-disc list-inside space-y-2">
                     <li>You want to do more than just manage calendars and meetings.</li>
                     <li>You crave a bigger role with global relevance.</li>
@@ -33,7 +33,7 @@ export default function ProblemSection() {
                 </div>
               </div>
               <p className="mt-6 font-semibold text-[#c62f9d]">
-                You’re ready to grow, but no one handed you the map.
+                You&apos;re ready to grow, but no one handed you the map.
               </p>
             </div>
 
@@ -45,9 +45,9 @@ export default function ProblemSection() {
                   <h3 className="text-2xl font-bold text-[#1C1C1C]">Stagnant</h3>
                 </div>
                 <div className="space-y-4 text-[#1C1C1C] text-base md:text-lg">
-                  <p>You’re capable, but your role feels routine and stagnant.</p>
+                  <p>You&apos;re capable, but your role feels routine and stagnant.</p>
                   <ul className="list-disc list-inside space-y-2">
-                    <li>You sense you need to evolve—but don’t know how.</li>
+                    <li>You sense you need to evolve—but don&apos;t know how.</li>
                     <li>You want meaning, confidence, and career direction.</li>
                   </ul>
                 </div>

@@ -22,7 +22,7 @@ export default function WhatYouWillLearn() {
               </div>
               <h3 className="text-2xl font-bold mb-4">Proven Tactics</h3>
               <p className="opacity-80">
-                No theory, just what works in today's business world. Where do I go from here? The Career Path of a PA/EA, Growth ingredients of a PA/EA, Creating relevance at the highest level as a PA/EA
+                No theory, just what works in today&apos;s business world. Where do I go from here? The Career Path of a PA/EA, Growth ingredients of a PA/EA, Creating relevance at the highest level as a PA/EA
               </p>
             </div>
 
@@ -32,7 +32,7 @@ export default function WhatYouWillLearn() {
               </div>
               <h3 className="text-2xl font-bold mb-4">Develop international relevance</h3>
               <p className="opacity-80">
-                Walk away with Tools, templates, playbooks available to the PA/EA you can start using the moment you're back in the office. Managing the Multi-dimensional needs and multiple demands on an International Executive, PA/EA for Mental Health
+                Walk away with Tools, templates, playbooks available to the PA/EA you can start using the moment you&apos;re back in the office. Managing the Multi-dimensional needs and multiple demands on an International Executive, PA/EA for Mental Health
               </p>
             </div>
 
