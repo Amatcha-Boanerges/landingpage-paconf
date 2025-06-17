@@ -44,7 +44,7 @@ export default function TestimonialSlider({ testimonials }: TestimonialSliderPro
             What Our Attendees Say
             </h2>
             <p className="text-xl text-gray-600">
-              Don't just take our word for it—see what attendees achieved after just one conference.
+              Don&apos;t just take our word for it—see what attendees achieved after just one conference.
             </p>
         </div>
 
