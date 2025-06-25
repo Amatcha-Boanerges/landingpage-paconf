@@ -1,13 +1,12 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
-
-
+ 
 # Project files
 /project_setup/old config
 /project_setup/tasks.md
 /project_setup/architecture.md
 /public/videos
 
-# dependencies
+# Dependencies
 /node_modules
 /.pnp
 .pnp.*
@@ -17,34 +16,34 @@
 !.yarn/releases
 !.yarn/versions
 
-# testing
+# Testing
 /coverage
 
-# next.js
+# Next.js
 /.next/
 /out/
 
-# production
+# Production
 /build
 
-# misc
+# Misc
 .DS_Store
 *.pem
 
-# debug
+# Debug logs
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
 
-# env files (can opt-in for committing if needed)
+# Environment files
 .env*
-.env*.local
+!.env.example  # 👈 This line allows the safe template to stay tracked
 
-# vercel
+# Vercel deployment metadata
 .vercel
 
-# typescript
+# TypeScript
 *.tsbuildinfo
 next-env.d.ts
-
+ 
