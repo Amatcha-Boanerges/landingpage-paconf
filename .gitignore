@@ -38,7 +38,7 @@ yarn-error.log*
 
 # Environment files
 .env*
-!.env.example  # 👈 This line allows the safe template to stay tracked
+!.env.example
 
 # Vercel deployment metadata
 .vercel
