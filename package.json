@@ -7,6 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
+    "lint:test": "eslint . --ext .js,.ts,.tsx",
+    "lint:fix": "eslint . --ext .js,.ts,.tsx --fix",
     "tailwind:init": "npx tailwindcss init --ts -p",
     "format": "prettier --write .",
     "format:check": "prettier --check ."
