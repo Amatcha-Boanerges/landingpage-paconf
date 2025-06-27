@@ -38,4 +38,4 @@ export async function getContent<T>(contentPath: string): Promise<T | null> {
     console.error(`Error reading content from ${contentPath}:`, error);
     return null;
   }
-} 
+}

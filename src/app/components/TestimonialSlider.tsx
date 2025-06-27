@@ -22,9 +22,7 @@ export default function TestimonialSlider({ testimonials }: TestimonialSliderPro
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentIndex((prevIndex) => 
-        prevIndex === testimonials.length - 1 ? 0 : prevIndex + 1
-      );
+      setCurrentIndex((prevIndex) => (prevIndex === testimonials.length - 1 ? 0 : prevIndex + 1));
     }, 5000); // Change testimonial every 5 seconds
 
     return () => clearInterval(interval);
@@ -39,15 +37,15 @@ export default function TestimonialSlider({ testimonials }: TestimonialSliderPro
   return (
     <section className="bg-white px-4 py-16">
       <div className="mx-auto max-w-6xl">
-        <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-5xl font-bold text-primary mb-6">
+        <div className="mb-16 text-center">
+          <h2 className="mb-6 text-3xl font-bold text-primary md:text-5xl">
             What Our Attendees Say
-            </h2>
-            <p className="text-xl text-gray-600">
-              Don&apos;t just take our word for it—see what attendees achieved after just one conference.
-            </p>
+          </h2>
+          <p className="text-xl text-gray-600">
+            Don&apos;t just take our word for it—see what attendees achieved after just one
+            conference.
+          </p>
         </div>
-
 
         <div className="relative">
           {/* Testimonial Card */}
@@ -66,11 +64,9 @@ export default function TestimonialSlider({ testimonials }: TestimonialSliderPro
             {/* Content */}
             <div className="flex-1 text-center md:text-left">
               <blockquote className="mb-4 text-lg italic text-gray-700">
-              &quot;&quot;{currentTestimonial.quote}&quot;&quot;
+                &quot;&quot;{currentTestimonial.quote}&quot;&quot;
               </blockquote>
-              <div className="font-semibold text-pa-background">
-                {currentTestimonial.name}
-              </div>
+              <div className="font-semibold text-pa-background">{currentTestimonial.name}</div>
               <div className="text-sm text-gray-600">
                 {currentTestimonial.role} at {currentTestimonial.company}
               </div>
@@ -94,4 +90,4 @@ export default function TestimonialSlider({ testimonials }: TestimonialSliderPro
       </div>
     </section>
   );
-} 
+}

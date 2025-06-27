@@ -30,7 +30,7 @@ export default function RSVPForm() {
     try {
       setIsSubmitting(true);
       setError(null);
-      
+
       const response = await fetch('/api/rsvp', {
         method: 'POST',
         headers: {
@@ -56,12 +56,12 @@ export default function RSVPForm() {
 
   if (isSuccess) {
     return (
-      <div className="text-center p-6 bg-green-50 rounded-lg">
-        <h3 className="text-xl font-semibold text-green-800 mb-2">Thank you for your RSVP!</h3>
-        <p className="text-green-600 mb-4">We look forward to seeing you at the conference.</p>
+      <div className="rounded-lg bg-green-50 p-6 text-center">
+        <h3 className="mb-2 text-xl font-semibold text-green-800">Thank you for your RSVP!</h3>
+        <p className="mb-4 text-green-600">We look forward to seeing you at the conference.</p>
         <button
           onClick={() => setIsSuccess(false)}
-          className="text-green-600 hover:text-green-800 underline"
+          className="text-green-600 underline hover:text-green-800"
         >
           Submit another RSVP
         </button>
@@ -82,9 +82,7 @@ export default function RSVPForm() {
           className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
           disabled={isSubmitting}
         />
-        {errors.name && (
-          <p className="mt-1 text-sm text-red-600">{errors.name.message}</p>
-        )}
+        {errors.name && <p className="mt-1 text-sm text-red-600">{errors.name.message}</p>}
       </div>
 
       <div>
@@ -98,13 +96,11 @@ export default function RSVPForm() {
           className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
           disabled={isSubmitting}
         />
-        {errors.email && (
-          <p className="mt-1 text-sm text-red-600">{errors.email.message}</p>
-        )}
+        {errors.email && <p className="mt-1 text-sm text-red-600">{errors.email.message}</p>}
       </div>
 
       {error && (
-        <div className="p-3 bg-red-50 rounded-md">
+        <div className="rounded-md bg-red-50 p-3">
           <p className="text-sm text-red-600">{error}</p>
         </div>
       )}
@@ -112,16 +108,16 @@ export default function RSVPForm() {
       <button
         type="submit"
         disabled={isSubmitting}
-        className={`w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white ${
+        className={`flex w-full justify-center rounded-md border border-transparent px-4 py-2 text-sm font-medium text-white shadow-sm ${
           isSubmitting
-            ? 'bg-blue-400 cursor-not-allowed'
-            : 'bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500'
+            ? 'cursor-not-allowed bg-blue-400'
+            : 'bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2'
         }`}
       >
         {isSubmitting ? (
           <>
             <svg
-              className="animate-spin -ml-1 mr-3 h-5 w-5 text-white"
+              className="-ml-1 mr-3 h-5 w-5 animate-spin text-white"
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
               viewBox="0 0 24 24"
@@ -148,4 +144,4 @@ export default function RSVPForm() {
       </button>
     </form>
   );
-} 
+}

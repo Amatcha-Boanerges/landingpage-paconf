@@ -38,9 +38,9 @@ export default function WhyAttend() {
       <div className="mx-auto max-w-6xl space-y-10">
         {/* Section heading */}
         <header className="space-y-4 text-left">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-5xl font-bold mb-6">
-            Why attend the  <span className="text-secondary">2025 PA Conference</span>
+          <div className="mb-16 text-center">
+            <h2 className="mb-6 text-3xl font-bold md:text-5xl">
+              Why attend the <span className="text-secondary">2025 PA Conference</span>
             </h2>
           </div>
           <p className="max-w-3xl text-xl text-gray-200 md:text-2xl">

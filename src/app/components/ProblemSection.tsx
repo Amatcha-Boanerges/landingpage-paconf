@@ -4,29 +4,30 @@ import { AlertCircle, Clock, Zap } from 'lucide-react';
 
 export default function ProblemSection() {
   return (
-    <section className="py-20 bg-[#F7F8FA]">
+    <section className="bg-[#F7F8FA] py-20">
       <div className="container mx-auto px-4">
-        <div className="max-w-6xl mx-auto">
+        <div className="mx-auto max-w-6xl">
           {/* Heading */}
-          <div className="text-center mb-20">
-            <AlertCircle className="w-16 h-16 text-[#c62f9d] mx-auto mb-6" />
-            <h2 className="text-3xl md:text-5xl font-bold text-[#1C1C1C]">
-              Sound Familiar?
-            </h2>
+          <div className="mb-20 text-center">
+            <AlertCircle className="mx-auto mb-6 h-16 w-16 text-[#c62f9d]" />
+            <h2 className="text-3xl font-bold text-[#1C1C1C] md:text-5xl">Sound Familiar?</h2>
           </div>
 
           {/* Grid */}
-          <div className="grid md:grid-cols-2 gap-12">
+          <div className="grid gap-12 md:grid-cols-2">
             {/* Overwhelmed */}
-            <div className="bg-white p-10 rounded-2xl shadow-lg flex flex-col justify-between h-full">
+            <div className="flex h-full flex-col justify-between rounded-2xl bg-white p-10 shadow-lg">
               <div>
-                <div className="flex items-center mb-6">
-                  <Clock className="w-8 h-8 text-[#c62f9d] mr-3" />
+                <div className="mb-6 flex items-center">
+                  <Clock className="mr-3 h-8 w-8 text-[#c62f9d]" />
                   <h3 className="text-2xl font-bold text-[#1C1C1C]">Overwhelmed</h3>
                 </div>
-                <div className="space-y-4 text-[#1C1C1C] text-base md:text-lg">
-                  <p>You&apos;re efficient and dependable, but stuck in logistics instead of work that gets noticed.</p>
-                  <ul className="list-disc list-inside space-y-2">
+                <div className="space-y-4 text-base text-[#1C1C1C] md:text-lg">
+                  <p>
+                    You&apos;re efficient and dependable, but stuck in logistics instead of work
+                    that gets noticed.
+                  </p>
+                  <ul className="list-inside list-disc space-y-2">
                     <li>You want to do more than just manage calendars and meetings.</li>
                     <li>You crave a bigger role with global relevance.</li>
                   </ul>
@@ -38,15 +39,15 @@ export default function ProblemSection() {
             </div>
 
             {/* Stuck */}
-            <div className="bg-white p-10 rounded-2xl shadow-lg flex flex-col justify-between h-full">
+            <div className="flex h-full flex-col justify-between rounded-2xl bg-white p-10 shadow-lg">
               <div>
-                <div className="flex items-center mb-6">
-                  <Zap className="w-8 h-8 text-[#22a796] mr-3" />
+                <div className="mb-6 flex items-center">
+                  <Zap className="mr-3 h-8 w-8 text-[#22a796]" />
                   <h3 className="text-2xl font-bold text-[#1C1C1C]">Stagnant</h3>
                 </div>
-                <div className="space-y-4 text-[#1C1C1C] text-base md:text-lg">
+                <div className="space-y-4 text-base text-[#1C1C1C] md:text-lg">
                   <p>You&apos;re capable, but your role feels routine and stagnant.</p>
-                  <ul className="list-disc list-inside space-y-2">
+                  <ul className="list-inside list-disc space-y-2">
                     <li>You sense you need to evolve—but don&apos;t know how.</li>
                     <li>You want meaning, confidence, and career direction.</li>
                   </ul>

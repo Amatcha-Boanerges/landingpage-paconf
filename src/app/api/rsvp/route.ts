@@ -17,26 +17,26 @@ export async function POST(request: Request) {
     const emailResult = await sendRSVPConfirmation(data.email, data.name);
     const emailSent = emailResult !== null;
 
-    return NextResponse.json({ 
+    return NextResponse.json({
       success: true,
-      message: emailSent 
+      message: emailSent
         ? 'RSVP submitted successfully. A confirmation email has been sent.'
-        : 'RSVP submitted successfully.'
+        : 'RSVP submitted successfully.',
     });
   } catch (error: unknown) {
     console.error('Error processing RSVP:', error);
-    
+
     const err = error as ErrorResponse;
     // Determine the appropriate status code
     const statusCode = err.message.includes('authentication failed') ? 500 : 400;
-    
+
     return NextResponse.json(
-      { 
+      {
         success: false,
         error: err.message || 'Failed to process RSVP',
-        details: err.response?.body || null
+        details: err.response?.body || null,
       },
       { status: statusCode }
     );
   }
-} 
+}

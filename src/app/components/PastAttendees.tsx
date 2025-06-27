@@ -23,14 +23,14 @@ const PastAttendees = () => {
     <section className="bg-white px-4 py-16">
       <div className="mx-auto max-w-[1200px]">
         <div className="text-center">
-          <h2 className="text-3xl md:text-5xl font-bold text-[#1C1C1C] mb-20">
+          <h2 className="mb-20 text-3xl font-bold text-[#1C1C1C] md:text-5xl">
             We trained PAs from the following Companies
           </h2>
 
           {/* Group wrapper for hover control */}
-          <div className="relative overflow-hidden w-full group">
+          <div className="group relative w-full overflow-hidden">
             {/* Scrolling strip duplicated for seamless loop */}
-            <div className="flex w-max animate-scroll-left group-hover:paused gap-12">
+            <div className="flex w-max animate-scroll-left gap-12 group-hover:paused">
               {[...companies, ...companies, ...companies].map((company, idx) => (
                 <div key={`${company.name}-${idx}`} className="relative h-24 w-24 flex-shrink-0">
                   <Image

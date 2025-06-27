@@ -57,4 +57,4 @@ export async function sendRSVPConfirmation(to: string, name: string) {
 
     throw new Error(`Failed to send email: ${err.message}`);
   }
-} 
+}

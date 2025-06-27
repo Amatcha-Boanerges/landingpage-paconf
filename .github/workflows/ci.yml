@@ -2,13 +2,31 @@ name: Next.js CI
 
 on:
   push:
-    branches: [main, develop, feat/hero-section, feat/awaityou, feat/whyattend, feat/lookupgrade, feat/looktransform]
+    branches:
+      [
+        main,
+        develop,
+        feat/hero-section,
+        feat/awaityou,
+        feat/whyattend,
+        feat/lookupgrade,
+        feat/looktransform,
+      ]
   pull_request:
-    branches: [main, develop, feat/hero-section, feat/awaityou, feat/whyattend, feat/lookupgrade, feat/looktransform]
+    branches:
+      [
+        main,
+        develop,
+        feat/hero-section,
+        feat/awaityou,
+        feat/whyattend,
+        feat/lookupgrade,
+        feat/looktransform,
+      ]
 
 jobs:
   build:
-    runs-on: ubuntu-latest 
+    runs-on: ubuntu-latest
     strategy:
       matrix:
         node-version: [18.x, 20.x] # You can adjust these Node.js versions
