@@ -7,6 +7,7 @@ import { redirect } from 'next/navigation';
 
 type UserData = {
     email: string;
+    name: string;
     paid?: boolean;
 };
 
@@ -32,7 +33,7 @@ export default function AccountPage() {
 
             const { data, error } = await supabase
                 .from('User_Data')
-                .select('email, paid')
+                .select('email, name, paid')
                 .eq('email', user.email)
                 .single();
 
@@ -58,7 +59,7 @@ export default function AccountPage() {
         <div className="min-h-screen bg-pa-background flex items-center justify-center px-4">
             <div className="max-w-md w-full bg-white p-6 rounded-xl shadow-md space-y-4">
                 <div className="space-y-2 text-gray-700">
-                    <p><strong>User:</strong> {userData.email}</p>
+                    <p><strong>User:</strong> {userData.name|| userData.email}</p>
                     <div className="inline-flex items-center justify-center rounded-full bg-green-100 p-2">
                         <svg
                             className="h-40 w-40 text-green-600"

@@ -3,14 +3,17 @@
 import { useEffect, useState } from 'react';
 import { redirect, useRouter } from 'next/navigation';
 import { createClient } from "@/lib/supabase/client";
+import Button from '@/app/components/ui/Button';
 
 export default function DataInputPage() {
     const [company, setCompany] = useState('');
+    const [name, setName] = useState('');
     const [paidFee, setPaidFee] = useState('');
     const [loading, setLoading] = useState(false);
     const [message, setMessage] = useState('');
     const router = useRouter();
     const supabase = createClient();
+    
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
@@ -25,14 +28,14 @@ export default function DataInputPage() {
 
         const { error } = await supabase
             .from('User_Data')
-            .update({ company, paid: paidFee === 'yes' })
-            .eq('email', user.email);
+            .update({ name, company, paid: paidFee === 'yes' })
+            .eq('uid', user.id);
 
         if (error) {
             redirect('/account')
         } else {
 
-            router.push('/account'); 
+            router.push('/account');
         }
 
         setLoading(false);
@@ -42,9 +45,24 @@ export default function DataInputPage() {
         <div className="flex min-h-screen items-center justify-center bg-pa-background px-4">
             <div className="w-full max-w-md rounded-2xl bg-white p-8 shadow-xl">
                 <h2 className="mb-6 text-center text-3xl font-bold text-gray-800">
-                    Log In
+                    Update Info
                 </h2>
                 <form onSubmit={handleSubmit} className="space-y-5">
+
+                    <div>
+                        <label htmlFor="name" className="block text-sm font-medium text-gray-700">
+                            Name
+                        </label>
+                        <input
+                            type="name"
+                            name="name"
+                            value={name}
+                            onChange={(e) => setName(e.target.value)}
+                            required
+                            className='mt-1 w-full rounded-lg border px-4 py-2 focus:outline-none focus:ring-2 text-black'
+                        />
+                    </div>
+
 
                     <div>
                         <label htmlFor="company" className="block text-sm font-medium text-gray-700">
@@ -77,11 +95,11 @@ export default function DataInputPage() {
 
                     </div>
 
-                    <button
+                    <Button
                         type="submit"
-                        className="w-full rounded-lg bg-indigo-600 px-4 py-2 font-semibold text-white transition hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-400">
+                        variant="secondary" size='md'>
                         Update Data
-                    </button>
+                    </Button>
                 </form>
             </div>
         </div>

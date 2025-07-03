@@ -1,28 +1,28 @@
 'use client'
 
 import { useState } from 'react';
-import { login } from '@/app/(site)/auth/login/paid-check-login/actions'
+import { login } from './actions'
 
 export default function LoginPage() {
 
-     const [form, setForm] = useState({
+    const [form, setForm] = useState({
 
     });
 
-        const [emailValid, setEmailValid] = useState(true);
-    
-        const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-            const { name, value } = e.target;
-            const updatedForm = { ...form, [name]: value };
-    
-            setForm(updatedForm);
+    const [emailValid, setEmailValid] = useState(true);
 
-    
-            if (name === "email") {
-                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                setEmailValid(emailRegex.test(value));
-            }
-        };
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const { name, value } = e.target;
+        const updatedForm = { ...form, [name]: value };
+
+        setForm(updatedForm);
+
+
+        if (name === "email") {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            setEmailValid(emailRegex.test(value));
+        }
+    };
 
     return (
         <div className="flex min-h-screen items-center justify-center bg-pa-background px-4">
@@ -64,7 +64,7 @@ export default function LoginPage() {
                     </div>
 
                     <button
-                    disabled={!emailValid}
+                        disabled={!emailValid}
                         formAction={login}
                         type="submit"
                         className="w-full rounded-lg bg-indigo-600 px-4 py-2 font-semibold text-white transition hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-400"
@@ -76,6 +76,11 @@ export default function LoginPage() {
                     Don't have an account?{" "}
                     <a href="/auth/sign-up" className="text-indigo-600 hover:underline">
                         Sign Up
+                    </a>
+                </p>
+                <p className="mt-6 text-center text-sm text-gray-600">
+                    <a href="/auth/change-password/forgot-password" className="text-indigo-600 hover:underline">
+                        Forgot Password?
                     </a>
                 </p>
             </div>

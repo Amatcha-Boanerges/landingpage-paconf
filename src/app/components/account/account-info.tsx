@@ -5,9 +5,10 @@ import { createClient } from '@/lib/supabase/client';
 import type { User } from '@supabase/supabase-js';
 import Button from '@/app/components/ui/Button'
 import Link from 'next/link';
+import { redirect } from 'next/navigation';
 
 type UserData = {
-  email: string;
+  name: string;
   company?: string;
   paid?: boolean;
   // Add other fields from your User_Data table if needed
@@ -27,23 +28,25 @@ export default function AccountPage() {
       } = await supabase.auth.getUser();
 
       if (authError || !user) {
-        console.error('Not signed in');
-        return;
+        redirect('/auth/login')
       }
 
+
       setUser(user);
+      console.log(user.id);
 
       const { data, error } = await supabase
         .from('User_Data')
-        .select('email, company, paid')
-        .eq('email', user.email)
+        .select('company, paid, name')
+        .eq('uid', user.id)
         .single();
 
-      if (error) {
-        console.error('Error fetching user data:', error);
+      if (error || !data) {
+        redirect('/')
       } else {
         setUserData(data);
       }
+
 
       setLoading(false);
     };
@@ -55,16 +58,25 @@ export default function AccountPage() {
 
   if (!userData) return <p className="p-6 text-red-500">User data not found.</p>;
 
+  if (user == null) return <p className="p-6 text-red-500">User data not found.</p>;
+
   return (
     <div className="min-h-screen bg-pa-background flex items-center justify-center px-4">
       <div className="max-w-md w-full bg-white p-6 rounded-xl shadow-md space-y-4">
         <h1 className="text-2xl font-bold text-gray-800">Your Account Info</h1>
         <div className="space-y-2 text-gray-700">
-          <p><strong>Email:</strong> {userData.email}</p>
+          <p><strong>Name:</strong> {userData.name || 'Not provided'}</p>
+          <p><strong>Email:</strong> {user.email}</p>
           <p><strong>Company:</strong> {userData.company || 'Not provided'}</p>
           <p><strong>Paid:</strong> {userData.paid ? 'Yes' : 'No'}</p>
           <Link href="/account/update-info">
-          <Button variant="secondary" size='md'> Update Info </Button>
+            <Button variant="secondary" size='md'> Update Info </Button>
+          </Link>
+          <Link href="/auth/change-email">
+            <Button variant="secondary" size='md'> Change Email </Button>
+          </Link>
+          <Link href="/auth/change-password/notice">
+            <Button variant="secondary" size='md'> Change Password </Button>
           </Link>
         </div>
       </div>
