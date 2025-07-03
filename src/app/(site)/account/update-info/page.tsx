@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { redirect, useRouter } from 'next/navigation';
 import { createClient } from "@/lib/supabase/client";
 import Button from '@/app/components/ui/Button';
@@ -9,8 +9,8 @@ export default function DataInputPage() {
     const [company, setCompany] = useState('');
     const [name, setName] = useState('');
     const [paidFee, setPaidFee] = useState('');
-    const [loading, setLoading] = useState(false);
-    const [message, setMessage] = useState('');
+    const [, setLoading] = useState(false);
+    const [, setMessage] = useState('');
     const router = useRouter();
     const supabase = createClient();
     

@@ -1,22 +1,9 @@
 import Button from "@/app/components/ui/Button";
-import { createClient } from "@/lib/supabase/client";
 import Link from "next/link";
-import { redirect } from "next/navigation";
 
 export default function ChangePasswordNotice() {
 
-    const supabase = createClient();
 
-    const authCheck = async () => {
-        const {
-            data: { user },
-            error: authError,
-        } = await supabase.auth.getUser();
-
-        if (authError || !user) {
-            redirect('/auth/login')
-        }
-    }
 
     return (
 

@@ -3,24 +3,11 @@
 import { useState } from 'react';
 import { forgotPassword } from './actions'
 import { createClient } from '@/lib/supabase/client';
-import { redirect } from 'next/navigation';
 
 export default function ChangeEmail() {
 
         const supabase = createClient();
     
-            const authCheck = async () => {
-              const {
-                data: { user },
-                error: authError,
-              } = await supabase.auth.getUser();
-        
-              if (authError || !user) {
-                
-              } else {
-                redirect('/')
-              }
-            }
 
      const [form, setForm] = useState({
 

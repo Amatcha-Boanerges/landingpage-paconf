@@ -2,23 +2,9 @@
 
 import { useState } from 'react';
 import { changeEmail } from './actions'
-import { createClient } from '@/lib/supabase/client';
-import { redirect } from 'next/navigation';
 
 export default function ChangeEmail() {
 
-        const supabase = createClient();
-    
-            const authCheck = async () => {
-              const {
-                data: { user },
-                error: authError,
-              } = await supabase.auth.getUser();
-        
-              if (authError || !user) {
-                redirect('/auth/login')
-              }
-            }
 
      const [form, setForm] = useState({
 

@@ -14,7 +14,7 @@ export async function changePassword(formData: FormData) {
     password: formData.get('password') as string,
   }
 
-const { data, error } = await supabase.auth.updateUser({
+const { error } = await supabase.auth.updateUser({
   password: form.password
 })
 

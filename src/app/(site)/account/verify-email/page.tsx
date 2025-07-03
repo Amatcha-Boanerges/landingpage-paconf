@@ -20,12 +20,10 @@ export default function VerifyPage() {
 
     check();
 
-
-    const handleSubmit = async (e: React.FormEvent) => {
-        e.preventDefault();
-
-
-    };
+    // Add feature in the future
+    //const handleSubmit = async (e: React.FormEvent) => {
+    //   e.preventDefault();
+    //};
 
 
     return (

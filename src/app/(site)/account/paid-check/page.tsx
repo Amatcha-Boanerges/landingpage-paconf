@@ -6,7 +6,6 @@ import type { User } from '@supabase/supabase-js';
 import { redirect } from 'next/navigation';
 
 type UserData = {
-    email: string;
     name: string;
     paid?: boolean;
 };
@@ -17,6 +16,8 @@ export default function AccountPage() {
     const [userData, setUserData] = useState<UserData | null>(null);
     const [loading, setLoading] = useState(true);
 
+    
+
     useEffect(() => {
         const fetchUserData = async () => {
             const {
@@ -25,16 +26,15 @@ export default function AccountPage() {
             } = await supabase.auth.getUser();
 
             if (authError || !user) {
-                redirect("/auth/login/paid-check-login")
-                return;
+                redirect("/auth/login/paid-check-login");  
             }
 
             setUser(user);
 
             const { data, error } = await supabase
                 .from('User_Data')
-                .select('email, name, paid')
-                .eq('email', user.email)
+                .select('name, paid')
+                .eq('uid', user.id)
                 .single();
 
             if (error) {
@@ -53,13 +53,15 @@ export default function AccountPage() {
 
     if (!userData) return <p className="p-6 text-red-500">User data not found.</p>;
 
+    if (!user) return <p className="p-6 text-red-500">User data not found.</p>;
+
 
     return userData.paid ? (
 
         <div className="min-h-screen bg-pa-background flex items-center justify-center px-4">
             <div className="max-w-md w-full bg-white p-6 rounded-xl shadow-md space-y-4">
                 <div className="space-y-2 text-gray-700">
-                    <p><strong>User:</strong> {userData.name|| userData.email}</p>
+                    <p><strong>User:</strong> {userData.name || user.email}</p>
                     <div className="inline-flex items-center justify-center rounded-full bg-green-100 p-2">
                         <svg
                             className="h-40 w-40 text-green-600"
@@ -79,8 +81,7 @@ export default function AccountPage() {
 
         <div className="min-h-screen bg-pa-background flex items-center justify-center px-4">
             <div className="max-w-md w-full bg-white p-6 rounded-xl shadow-md space-y-4">
-                <div className="space-y-2 text-gray-700">
-                    <p><strong>User:</strong> {userData.email}</p>
+                <div className="space-y-2">
                     <div className="inline-flex items-center justify-center rounded-full bg-red-100 p-2">
                         <svg
                             className="h-40 w-40 text-red-600"
