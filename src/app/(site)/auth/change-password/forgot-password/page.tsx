@@ -2,11 +2,9 @@
 
 import { useState } from 'react';
 import { forgotPassword } from './actions'
-import { createClient } from '@/lib/supabase/client';
 
 export default function ChangeEmail() {
 
-        const supabase = createClient();
     
 
      const [form, setForm] = useState({

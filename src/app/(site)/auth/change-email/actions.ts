@@ -14,7 +14,7 @@ export async function changeEmail(formData: FormData) {
     email: formData.get('email') as string,
   }
 
-const { data, error } = await supabase.auth.updateUser({
+const { error } = await supabase.auth.updateUser({
   email: form.email
 })
 
