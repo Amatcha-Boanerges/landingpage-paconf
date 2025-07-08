@@ -9,6 +9,7 @@ A modern, performant website for the Fivesixfive PA Conference built with Next.j
 - **Animation**: Framer Motion
 - **Forms**: React Hook Form + Zod
 - **Email**: SendGrid
+- **Database**: Supabase
 - **Data**: JSON / Markdown (flat files)
 - **Analytics**: Plausible / Vercel Analytics
 - **Deployment**: Vercel
@@ -40,8 +41,9 @@ fivesixfive-website/
 
 1. Clone the repository
 2. Install dependencies: `npm install`
-3. Run development server: `npm run dev`
-4. Build for production: `npm run build`
+3. Set up environment variables (see below)
+4. Run development server: `npm run dev`
+5. Build for production: `npm run build`
 
 ## 📝 Tasks
 
@@ -52,7 +54,24 @@ See `project_setup/tasks.md` for detailed development tasks and progress.
 Required environment variables:
 
 - `NEXT_PUBLIC_SITE_URL`: The base URL of the site
+- `NEXT_PUBLIC_SUPABASE_URL`: Your Supabase project URL
+- `NEXT_PUBLIC_SUPABASE_ANON_KEY`: Your Supabase anonymous key
 - `SENDGRID_API_KEY`: For email functionality (coming soon)
+
+### Setting up Supabase
+
+1. Create a Supabase project at [supabase.com](https://supabase.com)
+2. Go to Settings > API in your Supabase dashboard
+3. Copy the Project URL and anon/public key
+4. Create a `.env.local` file in the root directory with:
+
+```bash
+NEXT_PUBLIC_SUPABASE_URL=your_supabase_project_url
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
+NEXT_PUBLIC_SITE_URL=http://localhost:3000
+```
+
+See `env.example` for a template.
 
 ## 📄 License
 

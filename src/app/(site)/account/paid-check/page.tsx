@@ -5,13 +5,21 @@ import { createClient } from '@/lib/supabase/client';
 import type { User } from '@supabase/supabase-js';
 import { redirect } from 'next/navigation';
 
+// Force dynamic rendering to prevent static generation issues
+export const dynamic = 'force-dynamic';
+
 type UserData = {
     name: string;
     paid?: boolean;
 };
 
 export default function AccountPage() {
-    const supabase = createClient();
+    // Only create client if environment variables are available
+    const supabase = typeof window !== 'undefined' && 
+                     process.env.NEXT_PUBLIC_SUPABASE_URL && 
+                     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY 
+                     ? createClient() 
+                     : null;
     const [user, setUser] = useState<User | null>(null);
     const [userData, setUserData] = useState<UserData | null>(null);
     const [loading, setLoading] = useState(true);
@@ -20,6 +28,12 @@ export default function AccountPage() {
 
     useEffect(() => {
         const fetchUserData = async () => {
+            if (!supabase) {
+                console.error('Supabase client not available');
+                setLoading(false);
+                return;
+            }
+            
             const {
                 data: { user },
                 error: authError,

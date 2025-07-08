@@ -3,7 +3,16 @@ import { redirect } from 'next/navigation'
 import { createClient } from '@/lib/supabase/server'
 import  AccountPage  from '@/app/components/account/account-info'
 
+// Force dynamic rendering to prevent static generation issues
+export const dynamic = 'force-dynamic';
+
 export default async function PrivatePage() {
+  // Only create client if environment variables are available
+  if (!process.env.NEXT_PUBLIC_SUPABASE_URL || !process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY) {
+    console.error('Supabase environment variables not available');
+    redirect('/auth/login');
+  }
+
   const supabase = await createClient()
 
   const { data, error } = await supabase.auth.getUser()

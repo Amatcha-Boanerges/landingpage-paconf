@@ -36,6 +36,10 @@ jobs:
           # Mock environment variables for build
           SENDGRID_API_KEY: 'mock-key-for-ci'
           EMAIL_FROM: 'mock@example.com'
+          # Mock Supabase environment variables for CI
+          NEXT_PUBLIC_SUPABASE_URL: 'https://mock-project.supabase.co'
+          NEXT_PUBLIC_SUPABASE_ANON_KEY: 'mock-anon-key-for-ci-build'
+          NEXT_PUBLIC_SITE_URL: 'https://mock-site.com'
 
     # If you have tests, you can add a step like this:
     # - name: Run tests
