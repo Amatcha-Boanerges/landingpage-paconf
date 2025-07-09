@@ -1,7 +1,6 @@
 import { redirect } from 'next/navigation'
 
 import { createClient } from '@/lib/supabase/server'
-import  ChangePasswordFrom  from '@/app/components/auth/change-password-form'
 import ChangePasswordForm from '@/app/components/auth/change-password-form';
 
 // Force dynamic rendering to prevent static generation issues
