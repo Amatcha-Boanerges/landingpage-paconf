@@ -1,15 +1,29 @@
+import { redirect } from 'next/navigation'
 
-export default function ChangePasswordEmailNotice() {
+import { createClient } from '@/lib/supabase/server'
+import  ChangePasswordEmailNotice  from '@/app/components/auth/changed-password'
 
+// Force dynamic rendering to prevent static generation issues
+export const dynamic = 'force-dynamic';
 
+export default async function PrivatePage() {
+  // Only create client if environment variables are available
+  if (!process.env.NEXT_PUBLIC_SUPABASE_URL || !process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY) {
+    console.error('Supabase environment variables not available');
+    redirect('/auth/login');
+  }
 
-    return (
+  const supabase = await createClient()
 
-        <div className="min-h-screen bg-pa-background flex items-center justify-center px-4">
-            <div className="max-w-md w-full bg-white p-6 rounded-xl shadow-md space-y-4">
-                <h1 className=" text-center text-2xl font-bold text-gray-800">Password Successfully Changed</h1>
-            </div>
-        </div>
+  const { data, error } = await supabase.auth.getUser()
+  if (error || !data?.user) {
+    redirect('/auth/login')
+  }
 
-    );
+  return (
+    <div>
+      <ChangePasswordEmailNotice />
+    </div>
+  );
 }
+

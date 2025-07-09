@@ -1,36 +1,28 @@
-import Button from "@/app/components/ui/Button";
-import Link from "next/link";
+import { redirect } from 'next/navigation'
 
-export default function ChangePasswordNotice() {
+import { createClient } from '@/lib/supabase/server'
+import  ChangePasswordNotice  from '@/app/components/auth/change-password-notice'
 
+// Force dynamic rendering to prevent static generation issues
+export const dynamic = 'force-dynamic';
 
+export default async function PrivatePage() {
+  // Only create client if environment variables are available
+  if (!process.env.NEXT_PUBLIC_SUPABASE_URL || !process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY) {
+    console.error('Supabase environment variables not available');
+    redirect('/auth/login');
+  }
 
-    return (
+  const supabase = await createClient()
 
-        <div className="min-h-screen bg-pa-background flex items-center justify-center px-4">
-            <div className="max-w-md w-full bg-white p-6 rounded-xl shadow-md space-y-4">
-                <h1 className=" text-center text-2xl font-bold text-gray-800">Are you Sure</h1>
-                <div className=" text-center space-y-2 text-gray-700">
-                    <p>Are you sure you want to change your password</p>
-                    <p>Check your spam/junk folder if unable to find the emails</p>
+  const { data, error } = await supabase.auth.getUser()
+  if (error || !data?.user) {
+    redirect('/auth/login')
+  }
 
-                    <Link href="/auth/change-password">
-                        <Button
-                            variant="secondary" size='md'>
-                            Yes
-                        </Button>
-                    </Link>
-
-                    <Link href="/account">
-                        <Button
-                            variant="secondary" size='md'>
-                            No
-                        </Button>
-                    </Link>
-
-                </div>
-            </div>
-        </div>
-
-    );
+  return (
+    <div>
+      <ChangePasswordNotice />
+    </div>
+  );
 }
