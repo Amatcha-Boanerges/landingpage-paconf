@@ -3,6 +3,7 @@ import Image from 'next/image';
 import Button from './ui/Button';
 
 export default function Hero() {
+  // throw new Error('Test global error page');
   return (
     <section
       id="hero"
