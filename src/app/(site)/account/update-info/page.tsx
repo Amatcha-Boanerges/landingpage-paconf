@@ -44,9 +44,9 @@ export default function DataInputPage() {
             .from('User_Data')
             .update({ name, company, paid: paidFee === 'yes' })
             .eq('uid', user.id);
-
+            // Redirect to global error page on database update failure
         if (error) {
-            redirect('/account')
+            redirect('/error')
         } else {
 
             router.push('/account');
