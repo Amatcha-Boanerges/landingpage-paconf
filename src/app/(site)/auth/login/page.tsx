@@ -1,4 +1,5 @@
 'use client'
+import Link from 'next/link';
 
 import { useState } from 'react';
 import { login } from './actions'
@@ -74,14 +75,14 @@ export default function LoginPage() {
                 </form>
                 <p className="mt-6 text-center text-sm text-gray-600">
                     Don&apos;t have an account?{" "}
-                    <a href="/auth/sign-up" className="text-indigo-600 hover:underline">
+                    <Link href="/auth/sign-up" className="text-indigo-600 hover:underline">
                         Sign Up
-                    </a>
+                    </Link>
                 </p>
                 <p className="mt-6 text-center text-sm text-gray-600">
-                    <a href="/auth/change-password/forgot-password" className="text-indigo-600 hover:underline">
+                    <Link href="/auth/change-password/forgot-password" className="text-indigo-600 hover:underline">
                         Forgot Password?
-                    </a>
+                    </Link>
                 </p>
             </div>
         </div>
