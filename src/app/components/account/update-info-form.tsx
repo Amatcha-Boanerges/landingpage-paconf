@@ -41,9 +41,9 @@ export default function DataInputForm() {
         }
 
         const { error } = await supabase
-            .from('User_Data')
-            .update({ name, company, paid: paidFee === 'yes' })
-            .eq('uid', user.id);
+            .from('Users')
+            .update({ name, company})
+            .eq('id', user.id);
 
         if (error) {
             redirect('/account')
@@ -90,23 +90,6 @@ export default function DataInputForm() {
                             required
                             className='mt-1 w-full rounded-lg border px-4 py-2 focus:outline-none focus:ring-2 text-black'
                         />
-                    </div>
-
-                    <div>
-                        <label htmlFor="password" className="block text-sm font-medium text-gray-700">
-                            Have you paid the fee
-                        </label>
-                        <select
-                            className="mt-1 w-full rounded-lg border border-gray-300 px-4 py-2 focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-100 text-black"
-                            value={paidFee}
-                            onChange={(e) => setPaidFee(e.target.value)}
-                            required
-                        >
-                            <option value="" disabled>Select one</option>
-                            <option value="yes">Yes</option>
-                            <option value="no">No</option>
-                        </select>
-
                     </div>
 
                     <Button

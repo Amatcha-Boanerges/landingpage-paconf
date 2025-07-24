@@ -10,7 +10,6 @@ import { redirect } from 'next/navigation';
 type UserData = {
   name: string;
   company?: string;
-  paid?: boolean;
   // Add other fields from your User_Data table if needed
 };
 
@@ -47,9 +46,9 @@ export default function AccountPage() {
       console.log(user.id);
 
       const { data, error } = await supabase
-        .from('User_Data')
-        .select('company, paid, name')
-        .eq('uid', user.id)
+        .from('Users')
+        .select('company, name')
+        .eq('id', user.id)
         .single();
 
       if (error || !data) {
@@ -79,7 +78,6 @@ export default function AccountPage() {
           <p><strong>Name:</strong> {userData.name || 'Not provided'}</p>
           <p><strong>Email:</strong> {user.email}</p>
           <p><strong>Company:</strong> {userData.company || 'Not provided'}</p>
-          <p><strong>Paid:</strong> {userData.paid ? 'Yes' : 'No'}</p>
           <Link href="/account/update-info">
             <Button variant="secondary" size='md'> Update Info </Button>
           </Link>

@@ -10,10 +10,20 @@ export const dynamic = 'force-dynamic';
 
 type UserData = {
     name: string;
-    paid?: boolean;
 };
 
-export default function AccountPage() {
+type Product = {
+    name: string;
+}
+
+type Payment = {
+    payment_status: boolean;
+}
+
+//hard coded product for testing
+const product = 3;
+
+export default function PaidCheckPage() {
     // Only create client if environment variables are available
     const supabase = typeof window !== 'undefined' && 
                      process.env.NEXT_PUBLIC_SUPABASE_URL && 
@@ -22,6 +32,8 @@ export default function AccountPage() {
                      : null;
     const [user, setUser] = useState<User | null>(null);
     const [userData, setUserData] = useState<UserData | null>(null);
+    const [Product, setProduct] = useState<Product | null>(null);
+    const [Payment, setPayment] = useState<Payment | null>(null);
     const [loading, setLoading] = useState(true);
 
     
@@ -46,15 +58,90 @@ export default function AccountPage() {
             setUser(user);
 
             const { data, error } = await supabase
-                .from('User_Data')
-                .select('name, paid')
-                .eq('uid', user.id)
+                .from('Registration')
+                .select('payment_status')
+                .eq('user_id', user.id)
+                .eq('product_id', product)
+                .single();
+
+            if (error) {
+                console.error('Error fetching user data:', error);
+            } else {
+                setPayment(data);
+            }
+
+            setLoading(false);
+        };
+
+        fetchUserData();
+    }, [supabase]);
+
+        useEffect(() => {
+        const fetchUserData = async () => {
+            if (!supabase) {
+                console.error('Supabase client not available');
+                setLoading(false);
+                return;
+            }
+            
+            const {
+                data: { user },
+                error: authError,
+            } = await supabase.auth.getUser();
+
+            if (authError || !user) {
+                redirect("/auth/login/paid-check-login");  
+            }
+
+            setUser(user);
+
+            const { data, error } = await supabase
+                .from('Users')
+                .select('name')
+                .eq('id', user.id)
                 .single();
 
             if (error) {
                 console.error('Error fetching user data:', error);
             } else {
                 setUserData(data);
+            }
+
+            setLoading(false);
+        };
+
+        fetchUserData();
+    }, [supabase]);
+
+        useEffect(() => {
+        const fetchUserData = async () => {
+            if (!supabase) {
+                console.error('Supabase client not available');
+                setLoading(false);
+                return;
+            }
+            
+            const {
+                data: { user },
+                error: authError,
+            } = await supabase.auth.getUser();
+
+            if (authError || !user) {
+                redirect("/auth/login/paid-check-login");  
+            }
+
+            setUser(user);
+
+            const { data, error } = await supabase
+                .from('Products')
+                .select('name')
+                .eq('id', product)
+                .single();
+
+            if (error) {
+                console.error('Error fetching user data:', error);
+            } else {
+                setProduct(data);
             }
 
             setLoading(false);
@@ -70,12 +157,13 @@ export default function AccountPage() {
     if (!user) return <p className="p-6 text-red-500">User data not found.</p>;
 
 
-    return userData.paid ? (
+    return Payment?.payment_status ? (
 
         <div className="min-h-screen bg-pa-background flex items-center justify-center px-4">
             <div className="max-w-md w-full bg-white p-6 rounded-xl shadow-md space-y-4">
                 <div className="space-y-2 text-gray-700">
                     <p><strong>User:</strong> {userData.name || user.email}</p>
+                    <p><strong>Product:</strong> {Product?.name}</p>
                     <div className="inline-flex items-center justify-center rounded-full bg-green-100 p-2">
                         <svg
                             className="h-40 w-40 text-green-600"
@@ -95,7 +183,9 @@ export default function AccountPage() {
 
         <div className="min-h-screen bg-pa-background flex items-center justify-center px-4">
             <div className="max-w-md w-full bg-white p-6 rounded-xl shadow-md space-y-4">
-                <div className="space-y-2">
+                <div className="space-y-2 text-gray-700">
+                    <p><strong>User:</strong> {userData.name || user.email}</p>
+                    <p><strong>Product:</strong> {Product?.name}</p>
                     <div className="inline-flex items-center justify-center rounded-full bg-red-100 p-2">
                         <svg
                             className="h-40 w-40 text-red-600"
