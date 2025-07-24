@@ -14,7 +14,7 @@ export async function forgotPassword(formData: FormData) {
     email: formData.get('email') as string,
   }
 
-  const { data, error } = await supabase.auth.signInWithOtp({
+  const { error } = await supabase.auth.signInWithOtp({
     email: form.email,
     options: {
       emailRedirectTo: '/auth/change-password',

@@ -1,21 +1,12 @@
 'use client';
 
-import { redirect } from 'next/navigation'
 
-import { createClient } from '@/lib/supabase/client'
 import Button from '@/app/components/ui/Button'
 import Link from 'next/link';
 
-// Force dynamic rendering to prevent static generation issues
-export const dynamic = 'force-dynamic';
 
 export default function VerifyPage() {
-    // Only create client if environment variables are available
-    const supabase = typeof window !== 'undefined' && 
-                     process.env.NEXT_PUBLIC_SUPABASE_URL && 
-                     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY 
-                     ? createClient() 
-                     : null;
+
 
 
 
