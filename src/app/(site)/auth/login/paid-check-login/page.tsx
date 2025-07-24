@@ -7,7 +7,9 @@ import { useSearchParams } from 'next/navigation';
 function LoginCode() {
     const searchParams = useSearchParams();
     const code = searchParams.get('code');
+    if (code == 'invalid_credentials') {
     return <p className="mt-1 text-sm text-red-600">Email or Password were incorrectly</p>;
+    }
 }
 
 export default function LoginPage() {
