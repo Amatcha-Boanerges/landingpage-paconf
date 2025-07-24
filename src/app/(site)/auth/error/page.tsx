@@ -1,10 +1,16 @@
 'use client'
 
 import { useSearchParams } from "next/navigation";
+import { Suspense } from "react";
 
-export default function ErrorPage() {
+function ErrorCode() {
   const searchParams = useSearchParams();
   const code = searchParams.get('code');
+  return <p className="mt-1 text-sm text-red-600">Error Code: {code}</p>;
+}
+
+export default function ErrorPage() {
+
 
   return (
 
@@ -14,9 +20,9 @@ export default function ErrorPage() {
         <div className=" text-center space-y-2 text-gray-700">
           <p>There was an error</p>
           <p>Please try again later</p>
-          {code && (
-            <p className="mt-1 text-sm text-red-600">Error Code: {code}</p>
-          )}
+          <Suspense>
+            <ErrorCode />
+          </Suspense>
 
         </div>
       </div>

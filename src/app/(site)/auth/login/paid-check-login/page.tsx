@@ -1,28 +1,35 @@
 'use client'
 
-import { useState } from 'react';
+import { Suspense, useState } from 'react';
 import { login } from './actions'
+import { useSearchParams } from 'next/navigation';
+
+function LoginCode() {
+    const searchParams = useSearchParams();
+    const code = searchParams.get('code');
+    return <p className="mt-1 text-sm text-red-600">Email or Password were incorrectly</p>;
+}
 
 export default function LoginPage() {
 
-     const [form, setForm] = useState({
+    const [form, setForm] = useState({
 
     });
 
-        const [emailValid, setEmailValid] = useState(true);
-    
-        const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-            const { name, value } = e.target;
-            const updatedForm = { ...form, [name]: value };
-    
-            setForm(updatedForm);
+    const [emailValid, setEmailValid] = useState(true);
 
-    
-            if (name === "email") {
-                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                setEmailValid(emailRegex.test(value));
-            }
-        };
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const { name, value } = e.target;
+        const updatedForm = { ...form, [name]: value };
+
+        setForm(updatedForm);
+
+
+        if (name === "email") {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            setEmailValid(emailRegex.test(value));
+        }
+    };
 
     return (
         <div className="flex min-h-screen items-center justify-center bg-pa-background px-4">
@@ -61,10 +68,13 @@ export default function LoginPage() {
                             required
                             className="mt-1 w-full rounded-lg border border-gray-300 px-4 py-2 focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-100 text-black"
                         />
+                        <Suspense>
+                            <LoginCode />
+                        </Suspense>
                     </div>
 
                     <button
-                    disabled={!emailValid}
+                        disabled={!emailValid}
                         formAction={login}
                         type="submit"
                         className="w-full rounded-lg bg-indigo-600 px-4 py-2 font-semibold text-white transition hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-400"

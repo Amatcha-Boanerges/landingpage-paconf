@@ -1,14 +1,30 @@
 "use client";
 
-import { useState } from "react";
+import { Suspense, useState } from "react";
 
 import { signup } from './actions'
 import { useSearchParams } from "next/navigation";
 
-export default function SignUpPage() {
-
+function SignUpCode() {
     const searchParams = useSearchParams();
     const code = searchParams.get('code');
+    if (code == 'weak_password') {
+        return <p className="mt-1 text-sm text-red-600">Plaese choose a Stronger Password</p>;
+    }
+}
+
+function VerifyEmail() {
+    const searchParams = useSearchParams();
+    const code = searchParams.get('code');
+    if (code == 'resend') {
+        return <h2 className="mb-6 text-center text-3xl font-bold text-gray-800">Re-Enter to Resend Email</h2>;
+    } else if (code != 'resend') {
+        return <h2 className="mb-6 text-center text-3xl font-bold text-gray-800">Create your account</h2>;
+    }
+}
+
+
+export default function SignUpPage() {
 
     const [form, setForm] = useState({
         password: "",
@@ -41,17 +57,9 @@ export default function SignUpPage() {
     return (
         <div className="flex min-h-screen items-center justify-center bg-pa-background px-4">
             <div className="w-full max-w-md rounded-2xl bg-white p-8 shadow-xl">
-                {code == 'resend' && (
-                    <h2 className="mb-6 text-center text-3xl font-bold text-gray-800">
-                        Re-Enter to Resend Email
-                    </h2>
-                )}
-                {code != "resend" && (
-                    <h2 className="mb-6 text-center text-3xl font-bold text-gray-800">
-                        Create your account
-                    </h2>
-                )}
-
+                <Suspense> 
+                    <VerifyEmail />
+                </Suspense>
                 <form className="space-y-5">
 
                     <div>
@@ -85,9 +93,9 @@ export default function SignUpPage() {
                             required
                             className="mt-1 w-full rounded-lg border border-gray-300 px-4 py-2 focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-100 text-black"
                         />
-                        {code == 'weak_password' && (
-                            <p className="mt-1 text-sm text-red-600">Plaese choose a Stronger Password</p>
-                        )}
+                        <Suspense>
+                            <SignUpCode />
+                        </Suspense>
                     </div>
 
 

@@ -1,12 +1,19 @@
 'use client'
 
-import { useState } from 'react';
+import { Suspense, useState } from 'react';
 import { login } from './actions'
 import { useSearchParams } from 'next/navigation';
 
+function LoginCode() {
+    const searchParams = useSearchParams();
+    const code = searchParams.get('code');
+    if (code == 'invalid_credentials') {
+    return <p className="mt-1 text-sm text-red-600">Email or Password were incorrectly</p>;
+    }
+}
+
 export default function LoginPage() {
-        const searchParams = useSearchParams();
-        const code = searchParams.get('code');
+
 
     const [form, setForm] = useState({
 
@@ -64,9 +71,9 @@ export default function LoginPage() {
                             required
                             className="mt-1 w-full rounded-lg border border-gray-300 px-4 py-2 focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-100 text-black"
                         />
-                        {code == 'invalid_credentials' && (
-                            <p className="mt-1 text-sm text-red-600">Email or Password were incorrectly</p>
-                        )}
+                        <Suspense>
+                            <LoginCode />
+                        </Suspense>
                     </div>
 
                     <button
