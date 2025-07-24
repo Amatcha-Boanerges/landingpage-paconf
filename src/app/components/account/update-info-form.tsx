@@ -11,7 +11,6 @@ import Button from '@/app/components/ui/Button';
 export default function DataInputForm() {
     const [company, setCompany] = useState('');
     const [name, setName] = useState('');
-    const [paidFee, setPaidFee] = useState('');
     const [, setLoading] = useState(false);
     const [, setMessage] = useState('');
     const router = useRouter();
