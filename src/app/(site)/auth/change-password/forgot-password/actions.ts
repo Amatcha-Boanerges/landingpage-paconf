@@ -14,20 +14,23 @@ export async function forgotPassword(formData: FormData) {
     email: formData.get('email') as string,
   }
 
-const { data, error } = await supabase.auth.signInWithOtp({
-  email: form.email,
-  options: {
-    emailRedirectTo: '/auth/change-password',
-    shouldCreateUser: false
-  }
-})
+  const { data, error } = await supabase.auth.signInWithOtp({
+    email: form.email,
+    options: {
+      emailRedirectTo: '/auth/change-password',
+      shouldCreateUser: false
+    }
+  })
 
   if (error) {
-    redirect('/auth/error')
+    if (error) {
+      switch (error.code) {
+        default:
+          redirect(`/auth/error?code=${error.code}&msg=${encodeURIComponent(error.message)}`);
+      }
+    }
   }
 
-  console.log(data);
-  console.log(error);
 
   revalidatePath('/', 'layout')
   redirect('/auth/change-password/email-notice')

@@ -14,22 +14,22 @@ export default function DataInputForm() {
     const [, setLoading] = useState(false);
     const [, setMessage] = useState('');
     const router = useRouter();
-    
+
     // Only create client if environment variables are available
-    const supabase = typeof window !== 'undefined' && 
-                     process.env.NEXT_PUBLIC_SUPABASE_URL && 
-                     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY 
-                     ? createClient() 
-                     : null;
+    const supabase = typeof window !== 'undefined' &&
+        process.env.NEXT_PUBLIC_SUPABASE_URL &&
+        process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
+        ? createClient()
+        : null;
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-        
+
         if (!supabase) {
             console.error('Supabase client not available');
             return;
         }
-        
+
         setLoading(true);
         setMessage('');
 
@@ -41,11 +41,14 @@ export default function DataInputForm() {
 
         const { error } = await supabase
             .from('Users')
-            .update({ name, company})
+            .update({ name, company })
             .eq('id', user.id);
 
         if (error) {
-            redirect('/account')
+            switch (error.code) {
+                default:
+                    redirect(`/auth/error?code=${error.code}&msg=${encodeURIComponent(error.message)}`);
+            }
         } else {
 
             router.push('/account');

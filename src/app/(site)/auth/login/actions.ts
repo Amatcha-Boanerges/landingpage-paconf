@@ -18,7 +18,12 @@ export async function login(formData: FormData) {
   const { error } = await supabase.auth.signInWithPassword(data)
 
   if (error) {
-    redirect('/auth/error')
+    switch (error.code) {
+      case "invalid_credentials":
+        redirect(`/auth/login?code=${error.code}&msg=${encodeURIComponent(error.message)}`);
+      default:
+        redirect(`/auth/error?code=${error.code}&msg=${encodeURIComponent(error.message)}`);
+    }
   }
 
   revalidatePath('/', 'layout')

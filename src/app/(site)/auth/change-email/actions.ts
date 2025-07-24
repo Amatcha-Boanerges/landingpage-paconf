@@ -14,12 +14,17 @@ export async function changeEmail(formData: FormData) {
     email: formData.get('email') as string,
   }
 
-const { error } = await supabase.auth.updateUser({
-  email: form.email
-})
+  const { error } = await supabase.auth.updateUser({
+    email: form.email
+  })
 
   if (error) {
-    redirect('/auth/error')
+    if (error) {
+      switch (error.code) {
+        default:
+          redirect(`/auth/error?code=${error.code}&msg=${encodeURIComponent(error.message)}`);
+      }
+    }
   }
 
   revalidatePath('/', 'layout')

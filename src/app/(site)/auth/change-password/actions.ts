@@ -14,12 +14,17 @@ export async function changePassword(formData: FormData) {
     password: formData.get('password') as string,
   }
 
-const { error } = await supabase.auth.updateUser({
-  password: form.password
-})
+  const { error } = await supabase.auth.updateUser({
+    password: form.password
+  })
 
   if (error) {
-    redirect('/auth/error')
+    if (error) {
+      switch (error.code) {
+        default:
+          redirect(`/auth/error?code=${error.code}&msg=${encodeURIComponent(error.message)}`);
+      }
+    }
   }
 
   revalidatePath('/', 'layout')

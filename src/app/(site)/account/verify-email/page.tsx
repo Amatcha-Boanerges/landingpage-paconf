@@ -4,6 +4,7 @@ import { redirect } from 'next/navigation'
 
 import { createClient } from '@/lib/supabase/client'
 import Button from '@/app/components/ui/Button'
+import Link from 'next/link';
 
 // Force dynamic rendering to prevent static generation issues
 export const dynamic = 'force-dynamic';
@@ -16,26 +17,6 @@ export default function VerifyPage() {
                      ? createClient() 
                      : null;
 
-    const check = async () => {
-        if (!supabase) {
-            console.error('Supabase client not available');
-            return;
-        }
-        
-        const { data, error } = await supabase.auth.getUser()
-        if (error || !data?.user) {
-
-        } else {
-            redirect('/')
-        }
-    }
-
-    check();
-
-    // Add feature in the future
-    //const handleSubmit = async (e: React.FormEvent) => {
-    //   e.preventDefault();
-    //};
 
 
     return (
@@ -47,11 +28,13 @@ export default function VerifyPage() {
                     <p>You should have received an email with a verification link</p>
                     <p>Check your spam/junk folder if unable to find the verification email</p>
 
+                    <Link href="/auth/sign-up?code=resend">
                     <Button
                         type="submit"
                         variant="secondary" size='md'>
-                        Resend Verification Email (currently not working)
+                        Resend Verification Email
                     </Button>
+                    </Link>
 
                 </div>
             </div>

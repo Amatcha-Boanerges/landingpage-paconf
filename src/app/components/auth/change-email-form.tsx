@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import { changeEmail } from '@/app/(site)/auth/change-email/actions'
 
-export default function ChangeEmail() {
+export default function ChangeEmailForm() {
 
 
      const [form, setForm] = useState({

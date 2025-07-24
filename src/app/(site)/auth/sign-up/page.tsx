@@ -3,8 +3,12 @@
 import { useState } from "react";
 
 import { signup } from './actions'
+import { useSearchParams } from "next/navigation";
 
 export default function SignUpPage() {
+
+    const searchParams = useSearchParams();
+    const code = searchParams.get('code');
 
     const [form, setForm] = useState({
         password: "",
@@ -37,9 +41,17 @@ export default function SignUpPage() {
     return (
         <div className="flex min-h-screen items-center justify-center bg-pa-background px-4">
             <div className="w-full max-w-md rounded-2xl bg-white p-8 shadow-xl">
-                <h2 className="mb-6 text-center text-3xl font-bold text-gray-800">
-                    Create your account
-                </h2>
+                {code == 'resend' && (
+                    <h2 className="mb-6 text-center text-3xl font-bold text-gray-800">
+                        Re-Enter to Resend Email
+                    </h2>
+                )}
+                {code != "resend" && (
+                    <h2 className="mb-6 text-center text-3xl font-bold text-gray-800">
+                        Create your account
+                    </h2>
+                )}
+
                 <form className="space-y-5">
 
                     <div>
@@ -52,8 +64,8 @@ export default function SignUpPage() {
                             onChange={handleChange}
                             required
                             className={`mt-1 w-full rounded-lg border px-4 py-2 focus:outline-none focus:ring-2 text-black ${emailValid
-                                    ? "border-gray-300 focus:border-indigo-500 focus:ring-indigo-100"
-                                    : "border-red-500 focus:border-red-500 focus:ring-red-100"
+                                ? "border-gray-300 focus:border-indigo-500 focus:ring-indigo-100"
+                                : "border-red-500 focus:border-red-500 focus:ring-red-100"
                                 }`}
                         />
                         {!emailValid && (
@@ -73,7 +85,11 @@ export default function SignUpPage() {
                             required
                             className="mt-1 w-full rounded-lg border border-gray-300 px-4 py-2 focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-100 text-black"
                         />
+                        {code == 'weak_password' && (
+                            <p className="mt-1 text-sm text-red-600">Plaese choose a Stronger Password</p>
+                        )}
                     </div>
+
 
                     <div>
                         <label htmlFor="repeatPassword" className="block text-sm font-medium text-gray-700">

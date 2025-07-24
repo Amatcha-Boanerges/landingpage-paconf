@@ -25,18 +25,18 @@ const product = 3;
 
 export default function PaidCheckPage() {
     // Only create client if environment variables are available
-    const supabase = typeof window !== 'undefined' && 
-                     process.env.NEXT_PUBLIC_SUPABASE_URL && 
-                     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY 
-                     ? createClient() 
-                     : null;
+    const supabase = typeof window !== 'undefined' &&
+        process.env.NEXT_PUBLIC_SUPABASE_URL &&
+        process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
+        ? createClient()
+        : null;
     const [user, setUser] = useState<User | null>(null);
     const [userData, setUserData] = useState<UserData | null>(null);
     const [Product, setProduct] = useState<Product | null>(null);
     const [Payment, setPayment] = useState<Payment | null>(null);
     const [loading, setLoading] = useState(true);
 
-    
+
 
     useEffect(() => {
         const fetchUserData = async () => {
@@ -45,14 +45,14 @@ export default function PaidCheckPage() {
                 setLoading(false);
                 return;
             }
-            
+
             const {
                 data: { user },
                 error: authError,
             } = await supabase.auth.getUser();
 
             if (authError || !user) {
-                redirect("/auth/login/paid-check-login");  
+                redirect("/auth/login/paid-check-login");
             }
 
             setUser(user);
@@ -63,9 +63,13 @@ export default function PaidCheckPage() {
                 .eq('user_id', user.id)
                 .eq('product_id', product)
                 .single();
-
             if (error) {
-                console.error('Error fetching user data:', error);
+                if (error) {
+                    switch (error.code) {
+                        default:
+                            redirect(`/auth/error?code=${error.code}&msg=${encodeURIComponent(error.message)}`);
+                    }
+                }
             } else {
                 setPayment(data);
             }
@@ -76,21 +80,21 @@ export default function PaidCheckPage() {
         fetchUserData();
     }, [supabase]);
 
-        useEffect(() => {
+    useEffect(() => {
         const fetchUserData = async () => {
             if (!supabase) {
                 console.error('Supabase client not available');
                 setLoading(false);
                 return;
             }
-            
+
             const {
                 data: { user },
                 error: authError,
             } = await supabase.auth.getUser();
 
             if (authError || !user) {
-                redirect("/auth/login/paid-check-login");  
+                redirect("/auth/login/paid-check-login");
             }
 
             setUser(user);
@@ -113,21 +117,21 @@ export default function PaidCheckPage() {
         fetchUserData();
     }, [supabase]);
 
-        useEffect(() => {
+    useEffect(() => {
         const fetchUserData = async () => {
             if (!supabase) {
                 console.error('Supabase client not available');
                 setLoading(false);
                 return;
             }
-            
+
             const {
                 data: { user },
                 error: authError,
             } = await supabase.auth.getUser();
 
             if (authError || !user) {
-                redirect("/auth/login/paid-check-login");  
+                redirect("/auth/login/paid-check-login");
             }
 
             setUser(user);
