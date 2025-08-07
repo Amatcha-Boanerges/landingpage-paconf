@@ -2,9 +2,9 @@ name: Next.js CI
 
 on:
   push:
-    branches: [main, develop, feat/hero-section, feat/awaityou, feat/whyattend, feat/lookupgrade, feat/looktransform, feat/auth]
+    branches: [main, develop, feat/hero-section, feat/awaityou, feat/whyattend, feat/lookupgrade, feat/looktransform, feat/auth, feat/qrcode]
   pull_request:
-    branches: [main, develop, feat/hero-section, feat/awaityou, feat/whyattend, feat/lookupgrade, feat/looktransform, feat/auth]
+    branches: [main, develop, feat/hero-section, feat/awaityou, feat/whyattend, feat/lookupgrade, feat/looktransform, feat/auth, feat/qrcode]
 
 jobs:
   build:
