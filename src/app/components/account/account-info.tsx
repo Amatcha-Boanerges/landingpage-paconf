@@ -13,6 +13,11 @@ type UserData = {
   // Add other fields from your User_Data table if needed
 };
 
+type UserRole = {
+  role: string;
+  // Add other fields from your User_Data table if needed
+};
+
 export default function AccountPage() {
   // Only create client if environment variables are available
   const supabase = typeof window !== 'undefined' &&
@@ -22,7 +27,9 @@ export default function AccountPage() {
     : null;
   const [user, setUser] = useState<User | null>(null);
   const [userData, setUserData] = useState<UserData | null>(null);
+  const [userRole, setUserRole] = useState<UserRole | null>(null);
   const [loading, setLoading] = useState(true);
+  var scanner = false;
 
   useEffect(() => {
     const fetchUserData = async () => {
@@ -43,7 +50,26 @@ export default function AccountPage() {
 
 
       setUser(user);
-      console.log(user.id);
+
+      const { data: roles, error: roleError } = await supabase
+        .from("User_Roles")
+        .select("role")
+        .eq("uid", user.id)
+        .single();
+
+      if (roleError) {
+        if (roleError) {
+          switch (roleError.code) {
+            default:
+              redirect(`/auth/error?code=${roleError.code}&msg=${encodeURIComponent(roleError.message)}`);
+          }
+        }
+      } else {
+        setUserRole(roles);
+      }
+
+
+
 
       const { data, error } = await supabase
         .from('Users')
@@ -62,7 +88,6 @@ export default function AccountPage() {
         setUserData(data);
       }
 
-
       setLoading(false);
     };
 
@@ -73,7 +98,11 @@ export default function AccountPage() {
 
   if (!userData) return <p className="p-6 text-red-500">User data not found.</p>;
 
-  if (user == null) return <p className="p-6 text-red-500">User data not found.</p>;
+  if (!user) return <p className="p-6 text-red-500">User data not found.</p>;
+
+  if (userRole && userRole.role == 'qrcode') {
+    scanner = true;
+  }
 
   return (
     <div className="min-h-screen bg-pa-background flex items-center justify-center px-4">
@@ -92,6 +121,14 @@ export default function AccountPage() {
           <Link href="/auth/change-password/notice">
             <Button variant="secondary" size='md'> Change Password </Button>
           </Link>
+          <Link href="/account/qrcode-list">
+            <Button variant="secondary" size='md'> QR Codes </Button>
+          </Link>
+          {scanner && (
+            <Link href="/qrcodecheck/select-product">
+              <Button variant="secondary" size='md'> QR Scanner </Button>
+            </Link>
+          )}
         </div>
       </div>
     </div>
